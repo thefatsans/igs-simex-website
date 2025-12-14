@@ -117,16 +117,19 @@
 1. **URL finden**
    - Nach dem Deploy sehen Sie eine URL wie: `https://igs-simex-website.vercel.app`
    - Diese URL ist Ihre Live-Website!
+   - **Hinweis:** Sie brauchen KEINE eigene Domain! Vercel gibt Ihnen kostenlos diese URL.
 
 2. **Testen**
    - Öffnen Sie die URL im Browser
    - Testen Sie das Kontaktformular
    - Prüfen Sie, ob alles funktioniert
 
-3. **Custom Domain (optional)**
-   - In Vercel: Settings → Domains
-   - Domain hinzufügen (z.B. `igs-simex.de`)
-   - DNS-Einstellungen folgen (Vercel erklärt Ihnen wie)
+3. **Custom Domain (optional - NICHT notwendig!)**
+   - **Sie brauchen KEINE eigene Domain!** Die kostenlose `.vercel.app` URL reicht völlig aus.
+   - Falls Sie später doch eine eigene Domain möchten (z.B. `igs-simex.de`):
+     - In Vercel: Settings → Domains
+     - Domain hinzufügen
+     - DNS-Einstellungen folgen (Vercel erklärt Ihnen wie)
 
 ---
 
