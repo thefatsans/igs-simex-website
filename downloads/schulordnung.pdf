@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schulordnung - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .document {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid #e63946;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 42px;
+            text-align: center;
+            text-decoration: underline wavy;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #f77f00;
+            font-size: 24px;
+            margin-top: 30px;
+            border-bottom: 3px solid #fcbf49;
+            padding-bottom: 8px;
+        }
+        .important {
+            background: #fff3cd;
+            border-left: 5px solid #f77f00;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        ul {
+            line-height: 2;
+            font-size: 16px;
+        }
+        .rule {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #e63946;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <h1>📜 SCHULORDNUNG 📜</h1>
+        <p style="text-align: center; font-size: 18px; color: #666;">
+            IGS Simex - Gültig ab 2025
+        </p>
+        <p style="text-align: center; font-size: 14px; color: #999; margin-bottom: 30px;">
+            (Alle Angaben ohne Gewähr - Regeln können sich jederzeit ändern! 😅)
+        </p>
+
+        <div class="important">
+            ⚠️ WICHTIG: Diese Schulordnung ist bindend! (Meistens... manchmal... naja, versuchen Sie es einfach!)
+        </div>
+
+        <h2>1️⃣ Grundsätze</h2>
+        <div class="rule">
+            <p><strong>1.1</strong> Wir sind eine Gemeinschaft und respektieren einander! (Das ist nicht optional!)</p>
+            <p><strong>1.2</strong> Lernen soll Spaß machen - aber trotzdem ernst genommen werden! 🎓</p>
+            <p><strong>1.3</strong> Jeder hat das Recht auf Bildung - nutzen Sie es! 📚</p>
+            <p><strong>1.4</strong> Höflichkeit ist kostenlos - also seien Sie höflich! 😊</p>
+        </div>
+
+        <h2>2️⃣ Unterricht</h2>
+        <div class="rule">
+            <p><strong>2.1</strong> Pünktlichkeit ist wichtig! (Auch wenn wir wissen, dass Sie manchmal verschlafen 😴)</p>
+            <p><strong>2.2</strong> Handys sind während des Unterrichts nicht erlaubt! (Ja, wirklich nicht! 📵)</p>
+            <p><strong>2.3</strong> Hausaufgaben müssen gemacht werden! (Tut uns leid, aber so ist das Leben!)</p>
+            <p><strong>2.4</strong> Wenn Sie fehlen, brauchen wir eine Entschuldigung! (Erfinden Sie keine wilden Geschichten - wir haben alles schon gehört!)</p>
+            <p><strong>2.5</strong> Mitarbeit im Unterricht ist erwünscht! (Auch wenn es manchmal schwerfällt!)</p>
+        </div>
+
+        <h2>3️⃣ Verhalten</h2>
+        <div class="rule">
+            <p><strong>3.1</strong> Keine Gewalt! Weder physisch noch psychisch! (Das ist wirklich wichtig!)</p>
+            <p><strong>3.2</strong> Respekt vor Lehrern, Mitschülern und dem Reinigungspersonal! 👨‍🏫</p>
+            <p><strong>3.3</strong> Mobbing ist absolut verboten! (Wer mobbt, muss mit Konsequenzen rechnen!)</p>
+            <p><strong>3.4</strong> Alkohol und Drogen haben in der Schule nichts zu suchen! (Ja, wirklich nicht!)</p>
+            <p><strong>3.5</strong> Rauchen ist auf dem Schulgelände verboten! (Auch E-Zigaretten! 🚭)</p>
+        </div>
+
+        <h2>4️⃣ Schulgebäude & Gelände</h2>
+        <div class="rule">
+            <p><strong>4.1</strong> Sauberkeit ist wichtig! Werft euren Müll in die Mülleimer! 🗑️</p>
+            <p><strong>4.2</strong> Das Schulgebäude ist kein Spielplatz! (Aber Spaß haben ist erlaubt!)</p>
+            <p><strong>4.3</strong> Toiletten sind keine Raucherzimmer! (Das sollte selbstverständlich sein...)</p>
+            <p><strong>4.4</strong> Beschädigungen müssen gemeldet werden! (Und im Zweifelsfall bezahlt werden!)</p>
+            <p><strong>4.5</strong> Eigentum anderer respektieren! (Fremde Sachen gehören nicht dir!)</p>
+        </div>
+
+        <h2>5️⃣ Kleidung & Erscheinung</h2>
+        <div class="rule">
+            <p><strong>5.1</strong> Angemessene Kleidung bitte! (Was angemessen ist, entscheiden wir... 😏)</p>
+            <p><strong>5.2</strong> Kappen/Mützen sind im Unterricht abzunehmen! (Das ist Höflichkeit!)</p>
+            <p><strong>5.3</strong> Extreme Frisuren sind erlaubt - solange sie niemanden stören! 💇‍♂️</p>
+        </div>
+
+        <h2>6️⃣ Pausen</h2>
+        <div class="rule">
+            <p><strong>6.1</strong> In den Pausen könnt ihr euch erholen! (Aber nicht zu sehr!)</p>
+            <p><strong>6.2</strong> Das Schulgelände darf in der Pause verlassen werden (ab Klasse 7 mit Erlaubnis!)</p>
+            <p><strong>6.3</strong> Essen ist erlaubt - aber bitte nicht im Unterricht! (Außer es gibt Pizza für alle! 🍕)</p>
+        </div>
+
+        <h2>7️⃣ Konsequenzen bei Regelverstößen</h2>
+        <div class="rule">
+            <p><strong>7.1</strong> Kleine Verstöße: Ermahnung (wir sind nett!)</p>
+            <p><strong>7.2</strong> Wiederholte Verstöße: Gespräch mit Eltern (oh nein!)</p>
+            <p><strong>7.3</strong> Schwere Verstöße: Klassenkonferenz (das wird ernst!)</p>
+            <p><strong>7.4</strong> Sehr schwere Verstöße: Schulausschluss (das wollen wir nicht, also verhaltet euch!)</p>
+        </div>
+
+        <h2>8️⃣ Rechte der Schüler</h2>
+        <div class="rule">
+            <p><strong>8.1</strong> Recht auf Bildung (nutzt es!)</p>
+            <p><strong>8.2</strong> Recht auf freie Meinungsäußerung (solange sie respektvoll ist!)</p>
+            <p><strong>8.3</strong> Recht auf Mitsprache (in der SV zum Beispiel!)</p>
+            <p><strong>8.4</strong> Recht auf faire Behandlung (wir versuchen unser Bestes!)</p>
+        </div>
+
+        <div class="important">
+            <h2>📌 Wichtiger Hinweis:</h2>
+            <p>Diese Schulordnung kann jederzeit geändert werden! (Meistens geben wir Bescheid... manchmal auch nicht! 😅)</p>
+            <p>Bei Fragen wenden Sie sich bitte an die Schulleitung oder das Sekretariat!</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #e63946 0%, #f77f00 50%, #fcbf49 100%); color: white; border-radius: 20px;">
+            <p style="font-size: 24px; font-weight: bold;">🎓 Zusammen schaffen wir eine tolle Schulgemeinschaft! 🎓</p>
+            <p style="margin-top: 15px; font-size: 14px;">
+                Stand: 2025 | IGS Simex | Bei Fragen: info@igs-simex.de
+            </p>
+        </div>
+    </div>
+</body>
+</html>

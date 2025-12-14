@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmeldung Fünftklässler - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid #e63946;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 32px;
+            text-align: center;
+            text-decoration: underline wavy;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .warning {
+            background: #ffeb3b;
+            border: 3px dashed #f77f00;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 5px solid #fcbf49;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], input[type="date"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #e63946;
+            border-radius: 10px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        textarea {
+            min-height: 80px;
+        }
+        .checkbox-group {
+            margin: 15px 0;
+        }
+        .checkbox-group label {
+            display: inline;
+            margin-left: 10px;
+        }
+        .signature {
+            margin-top: 30px;
+            border-top: 3px dotted #333;
+            padding-top: 20px;
+        }
+        .important {
+            color: #e63946;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>🎉 ANMELDUNG FÜR NEUE FÜNFTKLÄSSLER 🎉</h1>
+        <p class="subtitle">Schuljahr 2025/2026 - IGS Simex</p>
+        
+        <div class="warning">
+            ⚠️ WICHTIG: Bitte füllen Sie dieses Formular mit MAGISCHER Tinte aus! 
+            (Normale Tinte funktioniert auch, ist aber weniger cool 😎)
+        </div>
+
+        <div class="form-section">
+            <h2>👤 Persönliche Daten des Schülers/der Schülerin</h2>
+            
+            <label>Vollständiger Name (wie auf dem Geburtszertifikat, aber cooler):</label>
+            <input type="text" placeholder="z.B. Max Mustermann oder Super Schüler">
+            
+            <label>Geburtsdatum (wann wurde Ihr Kind geboren?):</label>
+            <input type="date">
+            
+            <label>Geburtsort (wo wurde das kleine Genie geboren?):</label>
+            <input type="text" placeholder="z.B. Mainz, Planet Erde, etc.">
+            
+            <label>Adresse (wo wohnt Ihr Kind?):</label>
+            <textarea placeholder="Straße, Hausnummer, PLZ, Ort"></textarea>
+            
+            <label>Telefonnummer (für Notfälle, z.B. wenn Pizza bestellt werden muss):</label>
+            <input type="text" placeholder="z.B. 06131-123456">
+            
+            <label>E-Mail (wenn vorhanden, für digitale Post):</label>
+            <input type="email" placeholder="beispiel@email.de">
+        </div>
+
+        <div class="form-section">
+            <h2>👨‍👩‍👧‍👦 Eltern/Erziehungsberechtigte</h2>
+            
+            <label>Name von Mutter/Vater/Erziehungsberechtigte Person 1:</label>
+            <input type="text">
+            
+            <label>Name von Mutter/Vater/Erziehungsberechtigte Person 2 (falls vorhanden):</label>
+            <input type="text">
+            
+            <label>Beruf (wir sind neugierig! 😊):</label>
+            <input type="text" placeholder="z.B. Superheld, Lehrer, Astronaut...">
+        </div>
+
+        <div class="form-section">
+            <h2>🎓 Schulische Informationen</h2>
+            
+            <label>Aktuelle Schule (die, von der Sie wechseln):</label>
+            <input type="text" placeholder="Name der Grundschule">
+            
+            <label>Warum wollen Sie zu uns kommen? (Mindestens 500 Wörter, kreative Geschichten sind willkommen!):</label>
+            <textarea placeholder="Erzählen Sie uns Ihre wunderbare Geschichte..."></textarea>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="agb">
+                <label for="agb">Ich habe die AGBs gelesen (es gibt keine, aber wir vertrauen Ihnen)</label>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="datenschutz">
+                <label for="datenschutz">Ich bin einverstanden, dass meine Daten gespeichert werden (wo auch immer das ist)</label>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="newsletter">
+                <label for="newsletter">Ich möchte den Newsletter erhalten (mit den neuesten Memes und Schulnews)</label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>🤔 Spezielle Wünsche/Besonderheiten</h2>
+            <textarea placeholder="Hat Ihr Kind Superkräfte? Allergien? Kann es fliegen? Lassen Sie uns alles wissen!"></textarea>
+        </div>
+
+        <div class="signature">
+            <p class="important">📝 UNTERSCHRIFT DER ELTERN/ERZIEHUNGSBERECHTIGTEN:</p>
+            <p>Mit meiner Unterschrift bestätige ich, dass alle Angaben wahr sind (hoffentlich 😅)</p>
+            <br><br>
+            <p>Unterschrift: _____________________________</p>
+            <p>Datum: _____________________________</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #fcbf49; border-radius: 10px;">
+            <p style="font-size: 20px; font-weight: bold;">
+                🎊 Danke für Ihre Anmeldung! 🎊
+            </p>
+            <p>Wir freuen uns darauf, Ihr Kind bei uns zu haben!</p>
+            <p style="font-size: 12px; margin-top: 15px;">
+                Bitte senden Sie dieses Formular an: anmeldung@igs-simex.de<br>
+                Oder geben Sie es persönlich bei Professor Baldi ab! 👨‍🏫
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hausordnung - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .document {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid #e63946;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 42px;
+            text-align: center;
+            text-decoration: underline wavy;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #f77f00;
+            font-size: 24px;
+            margin-top: 30px;
+            border-bottom: 3px solid #fcbf49;
+            padding-bottom: 8px;
+        }
+        .rule {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #e63946;
+            border-radius: 5px;
+        }
+        .important {
+            background: #fff3cd;
+            border: 3px solid #f77f00;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <h1>🏠 HAUSORDNUNG 🏠</h1>
+        <p style="text-align: center; font-size: 18px; color: #666;">
+            IGS Simex - Regeln für das Schulgebäude (2025)
+        </p>
+
+        <div class="important">
+            ⚠️ WICHTIG: Diese Regeln gelten im gesamten Schulgebäude! 
+            (Auch in den Toiletten! Ja, auch dort!)
+        </div>
+
+        <h2>1️⃣ Betreten des Schulgebäudes</h2>
+        <div class="rule">
+            <p><strong>1.1</strong> Schuhe abtreten! (Wir wollen keine Matsch-Spuren! 👟)</p>
+            <p><strong>1.2</strong> Jacken gehören in die Garderobe! (Nicht auf den Boden werfen!)</p>
+            <p><strong>1.3</strong> Lärm vermeiden! (Es gibt Menschen, die arbeiten müssen! 🤫)</p>
+        </div>
+
+        <h2>2️⃣ Flure & Treppen</h2>
+        <div class="rule">
+            <p><strong>2.1</strong> Kein Rennen! (Außer Sie sind zu spät - dann verstehen wir das!)</p>
+            <p><strong>2.2</strong> Rechts gehen! (Wie im Straßenverkehr - nur ohne Autos!)</p>
+            <p><strong>2.3</strong> Taschen nicht in den Weg stellen! (Andere sollen auch durchkommen!)</p>
+        </div>
+
+        <h2>3️⃣ Klassenzimmer</h2>
+        <div class="rule">
+            <p><strong>3.1</strong> Beim Betreten grüßen! (Höflichkeit kostet nichts!)</p>
+            <p><strong>3.2</strong> Tafel putzen nach dem Unterricht! (Der nächste Lehrer dankt es Ihnen!)</p>
+            <p><strong>3.3</strong> Stühle hochstellen beim Verlassen! (Macht das Putzen einfacher!)</p>
+            <p><strong>3.4</strong> Müll in die Mülleimer! (Nicht unter die Tische werfen! 🗑️)</p>
+        </div>
+
+        <h2>4️⃣ Toiletten</h2>
+        <div class="rule">
+            <p><strong>4.1</strong> Sauber hinterlassen! (Das sollte selbstverständlich sein!)</p>
+            <p><strong>4.2</strong> Toilettenpapier gehört auf die Rolle! (Nicht auf den Boden!)</p>
+            <p><strong>4.3</strong> Hände waschen! (Hygiene ist wichtig! 🧼)</p>
+            <p><strong>4.4</strong> Kein Rauchen! (Auch keine E-Zigaretten! 🚭)</p>
+            <p><strong>4.5</strong> Kein Vandalismus! (Graffiti gehört auf Papier, nicht an die Wand!)</p>
+        </div>
+
+        <h2>5️⃣ Mensa & Cafeteria</h2>
+        <div class="rule">
+            <p><strong>5.1</strong> Geschirr wegräumen nach dem Essen! (Andere wollen auch essen!)</p>
+            <p><strong>5.2</strong> Tische sauber hinterlassen! (Kein Müll liegen lassen!)</p>
+            <p><strong>5.3</strong> Respektvolles Verhalten! (Auch wenn das Essen nicht schmeckt!)</p>
+            <p><strong>5.4</strong> Geduld in der Schlange! (Alle haben Hunger!)</p>
+        </div>
+
+        <h2>6️⃣ Bibliothek</h2>
+        <div class="rule">
+            <p><strong>6.1</strong> Ruhe bitte! (Hier wird gelernt und gelesen! 📚)</p>
+            <p><strong>6.2</strong> Bücher zurückgeben! (Auch wenn sie interessant waren!)</p>
+            <p><strong>6.3</strong> Bücher pfleglich behandeln! (Keine Eselsohren!)</p>
+        </div>
+
+        <h2>7️⃣ Sporthalle</h2>
+        <div class="rule">
+            <p><strong>7.1</strong> Turnschuhe mit hellen Sohlen! (Farbige Streifen auf dem Boden sehen nicht schön aus!)</p>
+            <p><strong>7.2</strong> Geräte pfleglich behandeln! (Wir teilen uns alle die Ausrüstung!)</p>
+            <p><strong>7.3</strong> Umkleide sauber hinterlassen! (Keine nassen Handtücher liegen lassen!)</p>
+        </div>
+
+        <h2>8️⃣ Schulhof</h2>
+        <div class="rule">
+            <p><strong>8.1</strong> Müll in die Mülleimer! (Bitte, bitte, bitte! 🗑️)</p>
+            <p><strong>8.2</strong> Pflanzen nicht zerstören! (Sie sind lebendig und fühlen Schmerz! 🌱)</p>
+            <p><strong>8.3</strong> Ballspiele nur in den dafür vorgesehenen Bereichen! (Nicht gegen Fenster!)</p>
+        </div>
+
+        <h2>9️⃣ Verbotene Gegenstände</h2>
+        <div class="important">
+            <p>❌ Diese Dinge haben in der Schule nichts zu suchen:</p>
+            <ul>
+                <li>Waffen aller Art (auch Spielzeug-Waffen!)</li>
+                <li>Alkohol & Drogen (ja, wirklich nicht!)</li>
+                <li>Feuerwerkskörper (zu gefährlich!)</li>
+                <li>Laserpointer (können gefährlich sein!)</li>
+                <li>Andere gefährliche Gegenstände (Ihr gesunder Menschenverstand sollte Ihnen sagen, was das ist!)</li>
+            </ul>
+        </div>
+
+        <h2>🔟 Sauberkeit</h2>
+        <div class="rule">
+            <p><strong>10.1</strong> Jeder ist für die Sauberkeit mitverantwortlich! (Nicht nur die Putzkräfte!)</p>
+            <p><strong>10.2</strong> Müll gehört in Mülleimer! (Nicht auf den Boden, nicht aus dem Fenster!)</p>
+            <p><strong>10.3</strong> Kaugummis gehören in den Müll! (Nicht unter die Tische!)</p>
+        </div>
+
+        <h2>1️⃣1️⃣ Konsequenzen</h2>
+        <div class="rule">
+            <p>Bei Verstößen gegen die Hausordnung:</p>
+            <ul>
+                <li>1. Verstoß: Ermahnung (wir sind nett!)</li>
+                <li>2. Verstoß: Gespräch mit Klassenlehrer</li>
+                <li>3. Verstoß: Eltern werden informiert</li>
+                <li>Schwere Verstöße: Sofortige Maßnahmen (das wird nicht lustig!)</li>
+            </ul>
+        </div>
+
+        <div class="important">
+            <p style="font-size: 18px;">
+                💡 Denken Sie daran: Eine saubere und respektvolle Umgebung 
+                macht das Lernen für alle angenehmer! 😊
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #e63946 0%, #f77f00 50%, #fcbf49 100%); color: white; border-radius: 20px;">
+            <p style="font-size: 24px; font-weight: bold;">🏠 Zusammen für eine saubere Schule! 🏠</p>
+            <p style="margin-top: 15px; font-size: 14px;">
+                Stand: 2025 | IGS Simex | Bei Fragen: info@igs-simex.de
+            </p>
+        </div>
+    </div>
+</body>
+</html>

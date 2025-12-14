@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .document {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid #e63946;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 36px;
+            text-align: center;
+            text-decoration: underline wavy;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #f77f00;
+            font-size: 22px;
+            margin-top: 25px;
+            border-bottom: 3px solid #fcbf49;
+            padding-bottom: 8px;
+        }
+        .section {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #e63946;
+            border-radius: 5px;
+        }
+        .important {
+            background: #fff3cd;
+            border: 3px solid #f77f00;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        ul {
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <h1>🔒 DATENSCHUTZERKLÄRUNG 🔒</h1>
+        <p style="text-align: center; font-size: 16px; color: #666;">
+            IGS Simex - Stand: 2025
+        </p>
+        <p style="text-align: center; font-size: 14px; color: #999; margin-bottom: 30px;">
+            (DSGVO-konform... mehr oder weniger! 😅)
+        </p>
+
+        <div class="important">
+            ⚠️ WICHTIG: Diese Datenschutzerklärung ist sehr wichtig! 
+            (Auch wenn sie langweilig ist - bitte lesen Sie sie trotzdem!)
+        </div>
+
+        <h2>1️⃣ Allgemeine Informationen</h2>
+        <div class="section">
+            <p><strong>Verantwortlicher:</strong> IGS Simex, Musterstraße 123, 12345 Musterstadt</p>
+            <p><strong>Datenschutzbeauftragter:</strong> Dr. Zomboss (der kümmert sich um alles! 👨‍💼)</p>
+            <p><strong>Kontakt:</strong> datenschutz@igs-simex.de</p>
+        </div>
+
+        <h2>2️⃣ Welche Daten erheben wir?</h2>
+        <div class="section">
+            <p>Wir erheben folgende Daten (leider müssen wir das!):</p>
+            <ul>
+                <li>👤 Persönliche Daten (Name, Adresse, Geburtsdatum - das Übliche halt!)</li>
+                <li>📞 Kontaktdaten (Telefon, E-Mail - damit wir Sie erreichen können!)</li>
+                <li>🎓 Schulische Daten (Noten, Fehlzeiten, etc.)</li>
+                <li>👨‍👩‍👧‍👦 Daten der Eltern/Erziehungsberechtigten</li>
+                <li>🏥 Gesundheitsdaten (falls wichtig für den Schulalltag)</li>
+            </ul>
+        </div>
+
+        <h2>3️⃣ Warum erheben wir diese Daten?</h2>
+        <div class="section">
+            <p>Wir brauchen diese Daten für:</p>
+            <ul>
+                <li>📚 Die Durchführung des Schulbetriebs (sonst geht's nicht!)</li>
+                <li>📊 Erstellung von Zeugnissen und Beurteilungen</li>
+                <li>📞 Kommunikation mit Ihnen (sonst können wir nicht anrufen!)</li>
+                <li>🏥 Sicherheit und Gesundheitsschutz</li>
+                <li>📋 Erfüllung gesetzlicher Pflichten (ja, die gibt es leider!)</li>
+            </ul>
+        </div>
+
+        <h2>4️⃣ Wer bekommt Ihre Daten?</h2>
+        <div class="section">
+            <p>Ihre Daten bekommen nur die Leute, die sie auch wirklich brauchen:</p>
+            <ul>
+                <li>👨‍🏫 Lehrer und Schulleitung (logisch, oder?)</li>
+                <li>📋 Sekretariat (die müssen auch Bescheid wissen!)</li>
+                <li>🏛️ Schulbehörden (wenn gesetzlich erforderlich)</li>
+                <li>🚑 Rettungsdienste (im Notfall - hoffen wir, dass das nie passiert!)</li>
+            </ul>
+            <p><strong>WICHTIG:</strong> Wir verkaufen Ihre Daten NICHT! (Auch nicht für viel Geld! 💰❌)</p>
+        </div>
+
+        <h2>5️⃣ Wie lange speichern wir Ihre Daten?</h2>
+        <div class="section">
+            <p>Wir speichern Ihre Daten so lange, wie es gesetzlich erforderlich ist:</p>
+            <ul>
+                <li>Während der Schulzeit (logisch!)</li>
+                <li>Danach noch einige Jahre (wegen Aufbewahrungspflichten)</li>
+                <li>Dann werden sie gelöscht (versprochen! 🗑️)</li>
+            </ul>
+        </div>
+
+        <h2>6️⃣ Ihre Rechte</h2>
+        <div class="important">
+            <p>Sie haben folgende Rechte (die DSGVO gibt Ihnen diese!):</p>
+            <ul>
+                <li>👁️ <strong>Auskunftsrecht:</strong> Sie können erfahren, welche Daten wir von Ihnen haben!</li>
+                <li>✏️ <strong>Berichtigungsrecht:</strong> Falsche Daten können korrigiert werden!</li>
+                <li>🗑️ <strong>Löschungsrecht:</strong> Unter bestimmten Umständen können Sie die Löschung verlangen!</li>
+                <li>🔒 <strong>Widerspruchsrecht:</strong> Sie können der Verarbeitung widersprechen! (Aber nicht immer!)</li>
+                <li>📋 <strong>Datenübertragbarkeit:</strong> Sie können Ihre Daten mitnehmen!</li>
+            </ul>
+        </div>
+
+        <h2>7️⃣ Fotos und Videos</h2>
+        <div class="section">
+            <p>Manchmal machen wir Fotos oder Videos:</p>
+            <ul>
+                <li>📸 Bei Veranstaltungen (Schulfest, etc.)</li>
+                <li>🎥 Für die Website oder Social Media (natürlich nur mit Ihrer Einwilligung!)</li>
+                <li>📚 Für schulische Zwecke</li>
+            </ul>
+            <p>Wenn Sie nicht möchten, dass Fotos gemacht werden, sagen Sie einfach Bescheid! 😊</p>
+        </div>
+
+        <h2>8️⃣ Cookies & Website</h2>
+        <div class="section">
+            <p>Auf unserer Website verwenden wir:</p>
+            <ul>
+                <li>🍪 Technisch notwendige Cookies (die Website funktioniert sonst nicht!)</li>
+                <li>📊 Analytics (um zu sehen, wer unsere Website besucht - anonymisiert!)</li>
+            </ul>
+            <p>Sie können Cookies in Ihrem Browser deaktivieren! (Aber dann funktioniert vielleicht nicht alles!)</p>
+        </div>
+
+        <h2>9️⃣ Sicherheit</h2>
+        <div class="section">
+            <p>Wir tun unser Bestes, um Ihre Daten zu schützen:</p>
+            <ul>
+                <li>🔐 Verschlüsselung (wo möglich!)</li>
+                <li>🔒 Sichere Speicherung (nicht auf einem Zettel unter dem Tisch!)</li>
+                <li>👨‍💻 Schulungen für Mitarbeiter (damit alle wissen, wie man richtig damit umgeht!)</li>
+            </ul>
+            <p><strong>ABER:</strong> 100%ige Sicherheit gibt es nie! (Auch nicht bei Banken!)</p>
+        </div>
+
+        <h2>🔟 Kontakt</h2>
+        <div class="section">
+            <p>Fragen zum Datenschutz?</p>
+            <p>📧 <strong>E-Mail:</strong> datenschutz@igs-simex.de</p>
+            <p>📞 <strong>Telefon:</strong> +49 (0) 123 456789</p>
+            <p>👤 <strong>Ansprechpartner:</strong> Dr. Zomboss (der kümmert sich um alles!)</p>
+        </div>
+
+        <div class="important">
+            <p style="font-size: 18px;">
+                💡 WICHTIG: Diese Datenschutzerklärung kann sich ändern! 
+                (Wir informieren Sie, wenn wichtige Änderungen kommen!)
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #e63946 0%, #f77f00 50%, #fcbf49 100%); color: white; border-radius: 20px;">
+            <p style="font-size: 24px; font-weight: bold;">🔒 Ihre Daten sind bei uns sicher! (Wir hoffen es! 😅)</p>
+            <p style="margin-top: 15px; font-size: 14px;">
+                Stand: 2025 | IGS Simex | DSGVO-konform (mehr oder weniger!)
+            </p>
+        </div>
+    </div>
+</body>
+</html>

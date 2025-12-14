@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Freistellung - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid #e63946;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #ffeb3b;
+            border: 3px solid #f77f00;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 5px solid #e63946;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #e63946;
+            border-radius: 10px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 14px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>📋 ANTRAG AUF FREISTELLUNG 📋</h1>
+        <p style="text-align: center; font-size: 16px; color: #666;">IGS Simex - 2025</p>
+        
+        <div class="warning">
+            ⚠️ WICHTIG: Freistellungen sind längerfristige Beurlaubungen! 
+            Diese werden nur in wirklich wichtigen Fällen genehmigt! (Und selbst dann nicht immer! 😅)
+        </div>
+
+        <div class="form-section">
+            <label>👤 Name des Schülers/der Schülerin:</label>
+            <input type="text" placeholder="Vollständiger Name">
+            
+            <label>📅 Klasse:</label>
+            <input type="text" placeholder="z.B. 9a, 11b, etc.">
+            
+            <label>📆 Zeitraum der gewünschten Freistellung:</label>
+            <p>Von: <input type="date" style="width: 48%; display: inline-block;"></p>
+            <p>Bis: <input type="date" style="width: 48%; display: inline-block;"></p>
+            <p style="font-size: 12px; color: #666;">
+                💡 Hinweis: Bitte realistisch bleiben! Eine Freistellung für das ganze Schuljahr wird nicht genehmigt! 😄
+            </p>
+        </div>
+
+        <div class="form-section">
+            <label>📝 Begründung (BITTE SEHR AUSFÜHRLICH! Mindestens 500 Wörter!):</label>
+            <textarea placeholder="Warum brauchen Sie eine längerfristige Freistellung? 
+            
+Bitte beschreiben Sie:
+- Den genauen Grund
+- Warum es keine Alternative gibt
+- Wie Sie den versäumten Unterrichtsstoff nachholen wollen
+- Warum es wirklich wichtig ist
+
+Beispiele (die wir hoffentlich nicht hören müssen):
+- 'Wir wollen 3 Monate in den Urlaub'
+- 'Mein Kind will nicht zur Schule'
+- 'Es ist gerade schönes Wetter'
+
+Gute Gründe könnten sein:
+- Längerfristige medizinische Behandlung (mit ärztlichem Attest!)
+- Wichtige Familienangelegenheiten
+- Besondere Umstände, die wirklich wichtig sind"></textarea>
+        </div>
+
+        <div class="form-section">
+            <label>📎 Beigefügte Unterlagen:</label>
+            <p style="font-size: 14px; color: #666;">
+                ☐ Ärztliches Attest (bei medizinischen Gründen)<br>
+                ☐ Nachweis über wichtige Termine<br>
+                ☐ Andere relevante Dokumente<br>
+                ☐ Nachweis über Nachholmöglichkeiten des Unterrichtsstoffes
+            </p>
+        </div>
+
+        <div class="form-section">
+            <label>📚 Wie soll der versäumte Unterrichtsstoff nachgeholt werden?</label>
+            <textarea placeholder="Beschreiben Sie Ihren Plan, wie der versäumte Unterrichtsstoff nachgeholt werden soll. 
+            
+Wir erwarten hier wirklich einen Plan! Nicht nur 'Mein Kind lernt dann zu Hause'!"></textarea>
+        </div>
+
+        <div class="form-section">
+            <label>👨‍👩‍👧‍👦 Name der Eltern/Erziehungsberechtigten:</label>
+            <input type="text" placeholder="Ihr Name">
+            
+            <label>📞 Kontakt:</label>
+            <input type="text" placeholder="Telefon oder E-Mail">
+        </div>
+
+        <div class="warning">
+            <h3 style="margin-top: 0;">⚠️ Wichtige Hinweise:</h3>
+            <ul style="font-size: 14px; line-height: 1.8;">
+                <li>Freistellungen müssen <strong>mindestens 4 Wochen vorher</strong> beantragt werden!</li>
+                <li>Wir können nicht garantieren, dass der Antrag genehmigt wird!</li>
+                <li>Bei Ablehnung gibt es Widerspruchsmöglichkeiten (aber das wird dann kompliziert!)</li>
+                <li>Versäumter Stoff MUSS nachgeholt werden!</li>
+                <li>Bei Nichtgenehmigung gelten Fehlzeiten als unentschuldigt!</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #e63946; color: white; border-radius: 10px;">
+            <p style="font-size: 18px; font-weight: bold;">📝 UNTERSCHRIFT:</p>
+            <p>Hiermit beantrage ich die Freistellung und versichere, dass alle Angaben wahr sind!</p>
+            <br><br>
+            <p>Unterschrift: _____________________________</p>
+            <p>Datum: _____________________________</p>
+        </div>
+
+        <div style="background: #fcbf49; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center;">
+            <p style="font-weight: bold; font-size: 16px;">
+                📧 Bitte senden Sie diesen Antrag an: freistellung@igs-simex.de
+            </p>
+            <p style="font-size: 12px; margin-top: 10px;">
+                Bearbeitungszeit: ca. 2-4 Wochen (manchmal auch länger... sorry! 😅)
+            </p>
+        </div>
+    </div>
+</body>
+</html>

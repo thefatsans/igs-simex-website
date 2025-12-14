@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mittagessen-Anmeldung - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid #fcbf49;
+        }
+        h1 {
+            color: #f77f00;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .info-box {
+            background: #fff3cd;
+            border: 3px solid #fcbf49;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 5px solid #fcbf49;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #fcbf49;
+            border-radius: 10px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 14px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            margin: 15px 0;
+        }
+        .checkbox-group label {
+            display: inline;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>🍕 MITTAGESSEN-ANMELDUNG 🍕</h1>
+        <p style="text-align: center; font-size: 16px; color: #666;">IGS Simex - Schuljahr 2025/2026</p>
+        
+        <div class="info-box">
+            <p style="font-weight: bold; font-size: 18px;">
+                🍽️ Willkommen beim Schulessen! 🍽️
+            </p>
+            <p>Lassen Sie Ihr Kind bei uns lecker essen! (Meistens ist es lecker... manchmal auch nicht! 😅)</p>
+        </div>
+
+        <div class="form-section">
+            <h2>👤 Schülerinformationen</h2>
+            <label>Name des Schülers/der Schülerin:</label>
+            <input type="text" placeholder="Vollständiger Name">
+            
+            <label>Klasse:</label>
+            <input type="text" placeholder="z.B. 5a, 8b, etc.">
+            
+            <label>Geburtsdatum:</label>
+            <input type="date">
+        </div>
+
+        <div class="form-section">
+            <h2>👨‍👩‍👧‍👦 Eltern/Erziehungsberechtigte</h2>
+            <label>Name:</label>
+            <input type="text" placeholder="Ihr Name">
+            
+            <label>E-Mail:</label>
+            <input type="email" placeholder="beispiel@email.de">
+            
+            <label>Telefonnummer:</label>
+            <input type="text" placeholder="+49 (0) 123 456789">
+        </div>
+
+        <div class="form-section">
+            <h2>🍽️ Essenswünsche</h2>
+            <label>Wie oft pro Woche soll Ihr Kind essen?</label>
+            <select>
+                <option>Jeden Tag (5x pro Woche)</option>
+                <option>4x pro Woche</option>
+                <option>3x pro Woche</option>
+                <option>2x pro Woche</option>
+                <option>1x pro Woche</option>
+            </select>
+
+            <div class="checkbox-group">
+                <p><strong>Allergien oder Unverträglichkeiten:</strong></p>
+                <input type="checkbox" id="allergie-none">
+                <label for="allergie-none">Keine</label><br>
+                <input type="checkbox" id="allergie-gluten">
+                <label for="allergie-gluten">Gluten (Weizen, etc.)</label><br>
+                <input type="checkbox" id="allergie-laktose">
+                <label for="allergie-laktose">Laktose (Milchprodukte)</label><br>
+                <input type="checkbox" id="allergie-nüsse">
+                <label for="allergie-nüsse">Nüsse</label><br>
+                <input type="checkbox" id="allergie-andere">
+                <label for="allergie-andere">Andere (bitte angeben):</label>
+                <input type="text" placeholder="Welche Allergien/Unverträglichkeiten?" style="margin-top: 10px;">
+            </div>
+
+            <label>Besondere Wünsche oder Hinweise:</label>
+            <textarea style="width: 100%; padding: 10px; border: 3px solid #fcbf49; border-radius: 10px; font-family: 'Comic Neue', cursive; min-height: 80px;" placeholder="z.B. Vegetarisch, Vegan, Halal, etc."></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>💳 Bezahlung</h2>
+            <label>Zahlungsweise:</label>
+            <select>
+                <option>Monatlich per Überweisung</option>
+                <option>Vierteljährlich per Überweisung</option>
+                <option>Barzahlung vor Ort (täglich)</option>
+            </select>
+
+            <div class="info-box">
+                <p><strong>💰 Preise (Stand 2025):</strong></p>
+                <ul style="font-size: 14px;">
+                    <li>Einzelessen: 4,50 € (wenn vorhanden!)</li>
+                    <li>Monatspreis (20 Essen): 80,00 € (Spar-Preis!)</li>
+                    <li>Für Empfänger von Leistungen: Ermäßigung möglich! (Fragen Sie nach!)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>📅 Beginn</h2>
+            <label>Ab wann soll das Mittagessen beginnen?</label>
+            <input type="date">
+            <p style="font-size: 12px; color: #666;">
+                💡 Tipp: Die Anmeldung sollte mindestens 1 Woche vorher erfolgen!
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3 style="margin-top: 0;">📌 Wichtige Informationen:</h3>
+            <ul style="font-size: 14px; line-height: 1.8;">
+                <li>Das Essen wird täglich frisch zubereitet! (Wir versprechen es zumindest! 😊)</li>
+                <li>Bei Krankheit können Sie bis 9 Uhr am selben Tag abbestellen!</li>
+                <li>Kündigung: 4 Wochen vor Monatsende!</li>
+                <li>Wir bemühen uns um gesundes und abwechslungsreiches Essen! (Meistens gelingt es auch!)</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f77f00; color: white; border-radius: 10px;">
+            <p style="font-size: 18px; font-weight: bold;">📝 UNTERSCHRIFT:</p>
+            <p>Hiermit melde ich mein Kind für das Mittagessen an und akzeptiere die Bedingungen!</p>
+            <br><br>
+            <p>Unterschrift: _____________________________</p>
+            <p>Datum: _____________________________</p>
+        </div>
+
+        <div style="background: #fcbf49; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center;">
+            <p style="font-weight: bold; font-size: 16px;">
+                📧 Bitte senden Sie diese Anmeldung an: mittagessen@igs-simex.de
+            </p>
+            <p style="font-size: 14px; margin-top: 10px;">
+                Oder geben Sie sie im Sekretariat ab! (Bei Dr. Zomboss oder Doktor Schwabbelbacken!)
+            </p>
+            <p style="font-size: 12px; margin-top: 10px;">
+                Guten Appetit! 🍽️😊
+            </p>
+        </div>
+    </div>
+</body>
+</html>

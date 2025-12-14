@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beurlaubungsantrag - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px dashed #fcbf49;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #ffeb3b;
+            border: 3px solid #f77f00;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 5px solid #e63946;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #e63946;
+            border-radius: 10px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 14px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>🏖️ BEURLAUBUNGSANTRAG 🏖️</h1>
+        <p style="text-align: center; font-size: 16px; color: #666;">IGS Simex - Schuljahr 2025/2026</p>
+        
+        <div class="warning">
+            ⚠️ WICHTIG: Beurlaubungen werden nur in begründeten Ausnahmefällen genehmigt! 
+            (Aber wir sind nett, also versuchen Sie es einfach! 😊)
+        </div>
+
+        <div class="form-section">
+            <label>👤 Name des Schülers/der Schülerin:</label>
+            <input type="text" placeholder="Vollständiger Name">
+            
+            <label>📅 Klasse:</label>
+            <input type="text" placeholder="z.B. 7a, 10b, etc.">
+            
+            <label>📆 Gewünschter Zeitraum der Beurlaubung:</label>
+            <p>Von: <input type="date" style="width: 48%; display: inline-block;"></p>
+            <p>Bis: <input type="date" style="width: 48%; display: inline-block;"></p>
+            <p style="font-size: 12px; color: #666; margin-top: 10px;">
+                💡 Hinweis: Beurlaubungen direkt vor oder nach den Ferien sind eigentlich nicht erlaubt... 
+                aber vielleicht machen wir eine Ausnahme! 🤞
+            </p>
+        </div>
+
+        <div class="form-section">
+            <label>📝 Grund für die Beurlaubung (bitte ausführlich begründen):</label>
+            <textarea placeholder="Erzählen Sie uns eine gute Geschichte! Warum brauchen Sie/kann Ihr Kind nicht zur Schule kommen? 
+            
+Beispiele:
+- Familienfeier (Geburtstag, Hochzeit, etc.)
+- Wichtiger Arzttermin (mit Nachweis bitte!)
+- Familienurlaub (wir wissen, dass Sie das eigentlich nicht dürfen, aber versuchen Sie es!)
+- Anderes (Ihrer Kreativität sind keine Grenzen gesetzt!)"></textarea>
+        </div>
+
+        <div class="form-section">
+            <label>📎 Anlagen (falls vorhanden):</label>
+            <p style="font-size: 14px; color: #666;">
+                ☐ Nachweis über wichtige Termine<br>
+                ☐ Einladung zu Familienfeier<br>
+                ☐ Reisebestätigung<br>
+                ☐ Arztbescheinigung<br>
+                ☐ Anderes: _____________________
+            </p>
+        </div>
+
+        <div class="form-section">
+            <label>👨‍👩‍👧‍👦 Name der Eltern/Erziehungsberechtigten:</label>
+            <input type="text" placeholder="Ihr Name">
+            
+            <label>📞 Kontakt (Telefon oder E-Mail):</label>
+            <input type="text" placeholder="Damit wir Sie erreichen können">
+        </div>
+
+        <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin: 30px 0;">
+            <h3 style="color: #f77f00; margin-top: 0;">📌 Wichtige Hinweise:</h3>
+            <ul style="font-size: 14px; line-height: 1.8;">
+                <li>Beurlaubungen müssen <strong>mindestens 2 Wochen vorher</strong> beantragt werden!</li>
+                <li>Wir können nicht garantieren, dass der Antrag genehmigt wird (aber wir versuchen es!)</li>
+                <li>Bei Ablehnung können Sie Widerspruch einlegen (aber das ist dann schon ein bisschen nervig 😅)</li>
+                <li>Versäumter Unterrichtsstoff muss nachgeholt werden (tja, so ist das Leben!)</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #e63946; color: white; border-radius: 10px;">
+            <p style="font-size: 18px; font-weight: bold;">📝 UNTERSCHRIFT DER ELTERN/ERZIEHUNGSBERECHTIGTEN:</p>
+            <p>Hiermit beantrage ich die Beurlaubung meines Kindes und versichere, dass alle Angaben der Wahrheit entsprechen.</p>
+            <br><br>
+            <p>Unterschrift: _____________________________</p>
+            <p>Datum: _____________________________</p>
+        </div>
+
+        <div style="background: #fcbf49; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center;">
+            <p style="font-weight: bold; font-size: 16px;">
+                📧 Bitte senden Sie diesen Antrag an: beurlaubung@igs-simex.de<br>
+                📬 Oder geben Sie ihn persönlich im Sekretariat ab!
+            </p>
+            <p style="font-size: 12px; margin-top: 10px;">
+                Wir bearbeiten Ihren Antrag so schnell wie möglich! (Aber keine Garantie auf Schnelligkeit 😅)
+            </p>
+        </div>
+    </div>
+</body>
+</html>

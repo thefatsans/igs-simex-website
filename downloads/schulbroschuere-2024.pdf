@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schulbroschüre 2024 - IGS Simex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #e63946 0%, #f77f00 50%, #fcbf49 100%);
+        }
+        .brochure {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #e63946;
+            font-size: 48px;
+            text-align: center;
+            text-decoration: underline wavy;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #f77f00;
+            font-size: 28px;
+            margin-top: 30px;
+            border-bottom: 3px solid #fcbf49;
+            padding-bottom: 10px;
+        }
+        .intro {
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 15px;
+        }
+        .feature-box {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #e63946;
+            border-radius: 10px;
+        }
+        .highlight {
+            background: #fcbf49;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        ul {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .emoji {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <h1>🎓 IGS SIMEX 🎓</h1>
+        <div class="intro">
+            <p class="emoji">🌟 Die verrückteste Schule der Welt! 🌟</p>
+            <p><strong>Schuljahr 2025/2026</strong></p>
+            <p>Willkommen in einer Welt voller Abenteuer, Lernen und... naja, Bildung halt! 😄</p>
+        </div>
+
+        <h2>👋 Willkommen bei uns!</h2>
+        <div class="feature-box">
+            <p>Hallo! Wir sind die <strong>Integrierte Gesamtschule Simex</strong> und wir sind hier, um Ihnen zu zeigen, warum unsere Schule die BESTE ist (nach allen anderen Schulen natürlich 😏).</p>
+            <p>Bei uns lernen Schülerinnen und Schüler von der 5. bis zur 13. Klasse. Das bedeutet: 9 Jahre voller Spaß, Abenteuer und... Hausaufgaben! 🎉</p>
+        </div>
+
+        <h2>🏆 Was macht uns besonders?</h2>
+        
+        <div class="feature-box">
+            <h3>🎯 Unser Motto: "Lernen mit Humor!"</h3>
+            <p>Wir glauben, dass Lernen Spaß machen sollte! Deshalb haben wir:</p>
+            <ul>
+                <li>📚 Lehrer, die tatsächlich lächeln können (manchmal)</li>
+                <li>🎨 Kreative Projekte, die Ihren Verstand herausfordern</li>
+                <li>🤝 Eine Gemeinschaft, die zusammenhält (meistens)</li>
+                <li>🍕 Mittagessen (wenn die Küche funktioniert)</li>
+            </ul>
+        </div>
+
+        <div class="feature-box">
+            <h3>👨‍🏫 Unser fantastisches Team</h3>
+            <p>Unsere Schulleitung besteht aus:</p>
+            <ul>
+                <li><strong>Tim Sand</strong> - Unser Schulleiter (der eigentlich sehr nett ist!)</li>
+                <li><strong>Jimmy Donaldson</strong> - Stellvertreter (kennt sich mit allem aus!)</li>
+                <li><strong>Professor Baldi</strong> - Stufenleitung 5/6 (Mathe-Genie und absolut nicht gruselig!)</li>
+                <li><strong>Dr. Zomboss</strong> & <strong>Doktor Schwabbelbacken</strong> - Sekretariat (die helfen Ihnen gerne, wirklich!)</li>
+            </ul>
+            <p class="highlight">💡 Tipp: Wenn Sie Professor Baldi treffen, sagen Sie ihm, dass Sie Mathe lieben. Vertrauen Sie uns! 😅</p>
+        </div>
+
+        <h2>📖 Unsere Angebote</h2>
+        
+        <div class="feature-box">
+            <h3>Sekundarstufe I (Klassen 5-10)</h3>
+            <p>Hier lernen Ihre Kinder die Grundlagen des Lebens:</p>
+            <ul>
+                <li>🔢 Mathe (ja, das muss sein...)</li>
+                <li>📝 Deutsch (damit Sie sich verständigen können)</li>
+                <li>🌍 Sprachen (Englisch, Französisch, Spanisch - wählen Sie Ihr Abenteuer!)</li>
+                <li>🔬 Naturwissenschaften (Chemie, Bio, Physik - Boom! 💥)</li>
+                <li>🎨 Kunst & Musik (für kreative Seelen)</li>
+                <li>⚽ Sport (damit Sie fit bleiben)</li>
+            </ul>
+        </div>
+
+        <div class="feature-box">
+            <h3>MSS - Mainzer Studienstufe (Klassen 11-13)</h3>
+            <p>Die Oberstufe! Hier wird es ernst(er):</p>
+            <ul>
+                <li>🎯 Individuelle Profilwahl (Sie entscheiden!)</li>
+                <li>📊 Abitur-Vorbereitung (ja, das ist wichtig...)</li>
+                <li>🚀 Vorbereitung auf das Leben danach</li>
+                <li>🤓 Vertiefung in Ihren Lieblingsfächern</li>
+            </ul>
+            <p><strong>MSS-Leiter:</strong> Maverick Trevillian (der kennt sich aus!)</p>
+        </div>
+
+        <h2>🎭 Arbeitsgemeinschaften (AGs)</h2>
+        <div class="feature-box">
+            <p>Nach dem Unterricht wird es noch besser! Wir bieten:</p>
+            <ul>
+                <li>🎮 Gaming-AG (endlich legal zocken!)</li>
+                <li>🎵 Schulband (machen Sie Lärm, aber melodisch!)</li>
+                <li>🎨 Kunst-AG (für alle kreativen Köpfe)</li>
+                <li>⚽ Sport-AGs (Fußball, Basketball, etc.)</li>
+                <li>🤖 Robotik-AG (bauen Sie die Zukunft!)</li>
+                <li>📷 Foto-AG (für Instagram-Fans)</li>
+            </ul>
+            <p class="highlight">💡 Neue AGs entstehen ständig - haben Sie eine Idee? Kommen Sie zu uns!</p>
+        </div>
+
+        <h2>🏫 Unsere Schule</h2>
+        <div class="feature-box">
+            <p><strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt</p>
+            <p><strong>Telefon:</strong> +49 (0) 123 456789 (rufen Sie an, wir sind da!)</p>
+            <p><strong>E-Mail:</strong> info@igs-simex.de</p>
+            <p><strong>Sekretariat:</strong> Mo-Fr, 7:30-15:00 Uhr (manchmal auch länger, wenn Dr. Zomboss gute Laune hat)</p>
+        </div>
+
+        <h2>🎊 Schulfeste & Events</h2>
+        <div class="feature-box">
+            <p>Wir feiern gerne! Jedes Jahr finden statt:</p>
+            <ul>
+                <li>🎉 Schulfest (das Highlight des Jahres!)</li>
+                <li>🎭 Theateraufführungen (unsere Schüler sind talentiert!)</li>
+                <li>🏃‍♂️ Sportfeste (wettkämpfen Sie mit!)</li>
+                <li>🎄 Weihnachtsfeiern (mit Glühwein... für die Eltern 😉)</li>
+            </ul>
+        </div>
+
+        <h2>💡 Warum IGS Simex?</h2>
+        <div class="highlight">
+            <p>✅ Wir nehmen jeden auf (fast)</p>
+            <p>✅ Wir fördern individuell (versprechen wir zumindest)</p>
+            <p>✅ Wir haben die coolsten Lehrer (subjektive Meinung)</p>
+            <p>✅ Wir bereiten Sie auf die Zukunft vor (hoffentlich)</p>
+            <p>✅ Wir haben Spaß dabei! (Das ist garantiert!)</p>
+        </div>
+
+        <h2>📞 Kontakt & Anmeldung</h2>
+        <div class="feature-box">
+            <p><strong>Interessiert?</strong> Kommen Sie vorbei oder melden Sie sich an!</p>
+            <p>📧 <strong>E-Mail:</strong> anmeldung@igs-simex.de</p>
+            <p>📱 <strong>Telefon:</strong> +49 (0) 123 456789</p>
+            <p>🌐 <strong>Website:</strong> www.igs-simex.de</p>
+            <p class="highlight">💬 Besuchen Sie uns gerne für eine persönliche Führung! (Terminvereinbarung empfohlen, sonst finden Sie uns vielleicht nicht 😅)</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #e63946 0%, #f77f00 50%, #fcbf49 100%); color: white; border-radius: 20px;">
+            <h2 style="color: white; border: none;">🎓 Wir freuen uns auf Sie! 🎓</h2>
+            <p style="font-size: 20px; font-weight: bold;">Kommen Sie zu IGS Simex - wo Lernen Spaß macht! (Manchmal!)</p>
+            <p style="margin-top: 20px; font-size: 14px;">Stand: 2025 | Alle Angaben ohne Gewähr | Fragen? Rufen Sie an! 😊</p>
+        </div>
+    </div>
+</body>
+</html>
