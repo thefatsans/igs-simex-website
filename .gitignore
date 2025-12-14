@@ -26,3 +26,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Documentation files (not needed in repo)
+*.md
+!README.md
