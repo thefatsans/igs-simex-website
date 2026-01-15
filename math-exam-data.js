@@ -20,12 +20,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 2,
                 type: 'text',
-                question: 'Was ist ein Viertel? Schreibe es als Bruch.',
+                question: 'Eine Pizza wird in 4 gleich große Stücke geteilt. Max isst ein Stück. Welcher Bruch der Pizza hat Max gegessen?',
                 points: 2,
                 negativePoints: 0,
                 correctAnswer: '1/4',
                 keywords: ['1/4', 'ein viertel', 'viertel'],
-                hint: 'Ein Viertel bedeutet, dass etwas in 4 gleich große Teile geteilt wird. Ein Teil davon ist 1/4.'
+                hint: 'Wenn die Pizza in 4 Stücke geteilt wird und Max ein Stück isst, hat er 1/4 der Pizza gegessen.'
             },
             {
                 id: 3,
@@ -84,12 +84,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 8,
                 type: 'text',
-                question: 'Kürze 4/8 vollständig.',
+                question: 'Ein Kuchen wird in 8 Stücke geteilt. 4 Stücke werden gegessen. Welcher gekürzte Bruch beschreibt, wie viel vom Kuchen gegessen wurde?',
                 points: 3,
                 negativePoints: 1,
                 correctAnswer: '1/2',
-                keywords: ['1/2'],
-                hint: '4/8 kannst du durch 4 teilen: (4÷4)/(8÷4) = 1/2.'
+                keywords: ['1/2', 'halb'],
+                hint: '4 von 8 Stücken = 4/8. Das kannst du kürzen: 4/8 = 1/2.'
             },
             {
                 id: 9,
@@ -133,12 +133,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 2,
                 type: 'text',
-                question: 'Kürze 6/12 vollständig.',
+                question: 'Ein Fußballspiel dauert 90 Minuten. Nach 45 Minuten ist die Hälfte vorbei. Welcher gekürzte Bruch beschreibt, wie viel des Spiels vorbei ist?',
                 points: 3,
                 negativePoints: 1,
                 correctAnswer: '1/2',
-                keywords: ['1/2'],
-                hint: '6/12 kannst du durch 6 teilen: (6÷6)/(12÷6) = 1/2.'
+                keywords: ['1/2', 'halb'],
+                hint: '45 von 90 Minuten = 45/90. Das kannst du kürzen: 45/90 = 1/2.'
             },
             {
                 id: 3,
@@ -175,12 +175,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 6,
                 type: 'text',
-                question: 'Kürze 9/15 vollständig.',
+                question: 'In einer Klasse mit 15 Schülern haben 9 Schüler die Hausaufgaben gemacht. Welcher gekürzte Bruch beschreibt, wie viele Schüler die Hausaufgaben gemacht haben?',
                 points: 4,
                 negativePoints: 1,
                 correctAnswer: '3/5',
                 keywords: ['3/5'],
-                hint: '9/15 kannst du durch 3 teilen: (9÷3)/(15÷3) = 3/5.'
+                hint: '9 von 15 Schülern = 9/15. Das kannst du durch 3 kürzen: 9/15 = 3/5.'
             },
             {
                 id: 7,
@@ -254,12 +254,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 2,
                 type: 'text',
-                question: 'Kürze 15/25 vollständig.',
+                question: 'Ein Buch hat 25 Kapitel. Tim hat 15 Kapitel gelesen. Welcher gekürzte Bruch beschreibt, wie viel des Buches Tim gelesen hat?',
                 points: 4,
                 negativePoints: 1,
                 correctAnswer: '3/5',
                 keywords: ['3/5'],
-                hint: '15/25 kannst du durch 5 teilen: (15÷5)/(25÷5) = 3/5.'
+                hint: '15 von 25 Kapiteln = 15/25. Das kannst du durch 5 kürzen: 15/25 = 3/5.'
             },
             {
                 id: 3,
