@@ -4,7 +4,7 @@
 const MATH_EXAM_DIFFICULTIES = {
     1: {
         name: 'Babys',
-        description: 'Einfach',
+        description: 'Sehr einfache Aufgaben zum Einstieg',
         emoji: '👶',
         questions: [
             {
@@ -111,7 +111,7 @@ const MATH_EXAM_DIFFICULTIES = {
     },
     2: {
         name: 'Einfach',
-        description: 'Standard',
+        description: 'Einfache Aufgaben zum Üben',
         emoji: '😊',
         questions: [
             {
@@ -228,7 +228,7 @@ const MATH_EXAM_DIFFICULTIES = {
     },
     3: {
         name: 'Mittel',
-        description: 'Normal',
+        description: 'Mittelschwere Aufgaben',
         emoji: '🤔',
         questions: [
             {
@@ -355,7 +355,7 @@ const MATH_EXAM_DIFFICULTIES = {
     },
     4: {
         name: 'Hard',
-        description: 'Schwer',
+        description: 'Schwere Aufgaben für Fortgeschrittene',
         emoji: '😰',
         questions: [
             {
@@ -492,7 +492,7 @@ const MATH_EXAM_DIFFICULTIES = {
     },
     5: {
         name: 'Extreme',
-        description: 'Sehr schwer',
+        description: 'Sehr schwere Aufgaben - nur für Profis',
         emoji: '🔥',
         questions: [
             {
@@ -639,7 +639,7 @@ const MATH_EXAM_DIFFICULTIES = {
     },
     6: {
         name: 'Unerträglich',
-        description: 'Brutal',
+        description: 'Brutal schwer - nur für wahre Meister',
         emoji: '💀',
         questions: [
             {

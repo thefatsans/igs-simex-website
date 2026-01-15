@@ -22,18 +22,28 @@ const GRADE_SCALE = {
     7: { min: -1, max: -1, label: 'Stinkig', emoji: '☠️' } // Für sehr schlechte Leistungen
 };
 
-// Verfügbare Klassenarbeiten
-const AVAILABLE_EXAMS = [
-    {
-        id: 'math-brueche',
-        title: 'Mathematik: Brüche',
-        subject: 'Mathematik',
-        duration: 45,
-        description: 'Brüche, Zahlenstrahl, Erweitern, Kürzen (6. Klasse)',
-        questions: [], // Wird dynamisch geladen
-        hasDifficultySelection: true // Zeigt Schwierigkeitsauswahl
+// Verfügbare Klassenarbeiten - werden dynamisch aus MATH_EXAM_DIFFICULTIES erstellt
+let AVAILABLE_EXAMS = [];
+
+// Initialisiere Arbeiten aus Schwierigkeitsstufen
+function initializeExams() {
+    if (typeof MATH_EXAM_DIFFICULTIES !== 'undefined') {
+        AVAILABLE_EXAMS = Object.keys(MATH_EXAM_DIFFICULTIES).map(level => {
+            const diff = MATH_EXAM_DIFFICULTIES[level];
+            return {
+                id: `math-brueche-${level}`,
+                title: `Mathematik: Brüche - ${diff.name}`,
+                subject: 'Mathematik',
+                duration: 45,
+                description: diff.description || '',
+                difficulty: parseInt(level),
+                difficultyName: diff.name,
+                emoji: diff.emoji,
+                questions: diff.questions || []
+            };
+        });
     }
-];
+}
 
 // Beispiel-Fragen (wird später durch echte Fragen ersetzt)
 let examQuestions = [];
@@ -55,14 +65,19 @@ function showExamSelection() {
     const examGrid = document.getElementById('examGrid');
     examGrid.innerHTML = '';
     
+    // Initialisiere Arbeiten falls noch nicht geschehen
+    if (AVAILABLE_EXAMS.length === 0) {
+        initializeExams();
+    }
+    
     AVAILABLE_EXAMS.forEach(exam => {
         const examCard = document.createElement('div');
         examCard.className = 'exam-card';
         examCard.innerHTML = `
-            <h3 class="exam-card-title">${exam.title}</h3>
+            <h3 class="exam-card-title">${exam.emoji || ''} ${exam.title}</h3>
             <p class="exam-card-info"><strong>Fach:</strong> ${exam.subject}</p>
-            <p class="exam-card-info">${exam.description}</p>
-            <p class="exam-card-duration">⏱️ ${exam.duration} Minuten</p>
+            <p class="exam-card-info">${exam.description || ''}</p>
+            <p class="exam-card-duration">⏱️ ${exam.duration} Minuten | ${exam.questions ? exam.questions.length : 0} Aufgaben</p>
         `;
         examCard.addEventListener('click', () => selectExam(exam));
         examGrid.appendChild(examCard);
@@ -88,13 +103,6 @@ function selectExam(exam) {
 function startExam() {
     if (!selectedExam) return;
     
-    // Prüfe ob Schwierigkeitsauswahl benötigt wird
-    if (selectedExam.hasDifficultySelection) {
-        showDifficultySelection();
-        document.getElementById('confirmationOverlay').classList.remove('show');
-        return;
-    }
-    
     // Verstecke Auswahlseite und zeige Arbeit
     document.getElementById('examSelectionContainer').classList.add('hidden');
     document.getElementById('klassenarbeitContainer').classList.remove('hidden');
@@ -102,6 +110,9 @@ function startExam() {
     
     // Setze Arbeit in localStorage (verhindert Zurückgehen)
     localStorage.setItem(SELECTED_EXAM_KEY, selectedExam.id);
+    if (selectedExam.difficulty) {
+        localStorage.setItem(SELECTED_DIFFICULTY_KEY, selectedExam.difficulty.toString());
+    }
     
     // Lade Fragen und starte Timer
     loadExamData(selectedExam);
@@ -190,28 +201,59 @@ function startExamWithDifficulty() {
 function applyDifficultyDesign(level) {
     const container = document.getElementById('klassenarbeitContainer');
     const timerContainer = document.getElementById('timerContainer');
+    const body = document.body;
     
     // Entferne alle Difficulty-Klassen
     container.className = 'klassenarbeit-container';
     timerContainer.className = 'timer-container';
+    body.classList.remove('difficulty-1', 'difficulty-2', 'difficulty-3', 'difficulty-4', 'difficulty-5', 'difficulty-6');
     
     // Füge entsprechende Klasse hinzu
     container.classList.add(`difficulty-${level}`);
     timerContainer.classList.add(`difficulty-${level}`);
+    body.classList.add(`difficulty-${level}`);
     
     // Spezielle Styles für jede Stufe
     const styles = {
-        1: { bg: 'linear-gradient(135deg, #e0f2fe, #bae6fd)', color: '#0369a1' },
-        2: { bg: 'linear-gradient(135deg, #dcfce7, #bbf7d0)', color: '#166534' },
-        3: { bg: 'linear-gradient(135deg, #fef3c7, #fde68a)', color: '#92400e' },
-        4: { bg: 'linear-gradient(135deg, #fed7aa, #fdba74)', color: '#9a3412' },
-        5: { bg: 'linear-gradient(135deg, #fecaca, #fca5a5)', color: '#991b1b' },
-        6: { bg: 'linear-gradient(135deg, #1a0000, #000000)', color: '#ff0000' }
+        1: { 
+            bg: 'linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc)', 
+            color: '#0369a1',
+            shadow: '0 4px 20px rgba(3, 105, 161, 0.3)'
+        },
+        2: { 
+            bg: 'linear-gradient(135deg, #dcfce7, #bbf7d0, #86efac)', 
+            color: '#166534',
+            shadow: '0 4px 20px rgba(22, 101, 52, 0.3)'
+        },
+        3: { 
+            bg: 'linear-gradient(135deg, #fef3c7, #fde68a, #fcd34d)', 
+            color: '#92400e',
+            shadow: '0 4px 20px rgba(146, 64, 14, 0.3)'
+        },
+        4: { 
+            bg: 'linear-gradient(135deg, #fed7aa, #fdba74, #fb923c)', 
+            color: '#9a3412',
+            shadow: '0 4px 20px rgba(154, 52, 18, 0.3)'
+        },
+        5: { 
+            bg: 'linear-gradient(135deg, #fecaca, #fca5a5, #f87171)', 
+            color: '#991b1b',
+            shadow: '0 4px 20px rgba(153, 27, 27, 0.4)'
+        },
+        6: { 
+            bg: 'linear-gradient(135deg, #1a0000, #000000, #1a0000)', 
+            color: '#ff0000',
+            shadow: '0 4px 30px rgba(255, 0, 0, 0.6), inset 0 0 50px rgba(255, 0, 0, 0.2)'
+        }
     };
     
     if (styles[level]) {
         timerContainer.style.background = styles[level].bg;
         timerContainer.style.color = styles[level].color;
+        timerContainer.style.boxShadow = styles[level].shadow;
+        
+        // Hintergrund für Container
+        container.style.background = level <= 3 ? '#f9fafb' : level <= 5 ? '#fef2f2' : '#0a0000';
     }
 }
 
@@ -359,14 +401,28 @@ function cancelStart() {
 // Arbeit laden
 function loadExamData(exam) {
     EXAM_DURATION_MINUTES = exam.duration;
-    window.setExamTitle(exam.title, exam.description);
     
-    // Lade Fragen (später durch echte Fragen ersetzt)
+    // Titel und Beschreibung setzen
+    const title = exam.title || 'Klassenarbeit';
+    const description = exam.description || 'Bitte bearbeiten Sie alle Aufgaben sorgfältig.';
+    window.setExamTitle(title, description);
+    
+    // Design basierend auf Schwierigkeit anwenden
+    if (exam.difficulty) {
+        applyDifficultyDesign(exam.difficulty);
+        selectedDifficulty = { level: exam.difficulty, data: exam };
+    }
+    
+    // Lade Fragen
     if (exam.questions && exam.questions.length > 0) {
-        window.setExamQuestions(exam.questions);
+        examQuestions = exam.questions;
+        renderQuestions();
     } else {
         loadQuestions(); // Fallback
     }
+    
+    // Initialisiere Tools
+    initTools();
 }
 
 // Verhindere Zurückgehen
@@ -859,6 +915,9 @@ function submitExam() {
 
 // Initialisierung
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialisiere Arbeiten aus Schwierigkeitsstufen
+    initializeExams();
+    
     const selectedExamId = localStorage.getItem(SELECTED_EXAM_KEY);
     const examStarted = localStorage.getItem(EXAM_STARTED_KEY);
     const selectedDiffLevel = localStorage.getItem(SELECTED_DIFFICULTY_KEY);
@@ -870,25 +929,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (exam) {
             selectedExam = exam;
             
-            // Lade Schwierigkeit falls vorhanden
-            if (selectedDiffLevel && typeof MATH_EXAM_DIFFICULTIES !== 'undefined') {
-                const diffData = MATH_EXAM_DIFFICULTIES[selectedDiffLevel];
-                if (diffData) {
-                    selectedDifficulty = { level: parseInt(selectedDiffLevel), data: diffData };
-                    examQuestions = diffData.questions;
-                    applyDifficultyDesign(parseInt(selectedDiffLevel));
-                }
-            }
-            
             document.getElementById('examSelectionContainer').classList.add('hidden');
             document.getElementById('difficultySelection').classList.add('hidden');
             document.getElementById('klassenarbeitContainer').classList.remove('hidden');
             loadExamData(exam);
-            if (examQuestions.length > 0) {
-                renderQuestions();
-            }
             initTimer();
-            initTools();
             preventBackNavigation();
         } else {
             // Arbeit nicht gefunden - zeige Auswahl

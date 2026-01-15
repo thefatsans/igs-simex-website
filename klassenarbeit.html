@@ -982,6 +982,86 @@
             color: #ef4444;
         }
 
+        /* Body-Styles für verschiedene Schwierigkeitsstufen */
+        body.difficulty-1 {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        }
+
+        body.difficulty-2 {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+
+        body.difficulty-3 {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+        }
+
+        body.difficulty-4 {
+            background: linear-gradient(135deg, #fff7ed, #fed7aa);
+        }
+
+        body.difficulty-5 {
+            background: linear-gradient(135deg, #fef2f2, #fecaca);
+        }
+
+        body.difficulty-6 {
+            background: linear-gradient(135deg, #0a0000, #000000);
+            color: #ff0000;
+        }
+
+        body.difficulty-6 .question-container {
+            background: #1a0000;
+            border-color: #ff0000;
+            color: #ffcccc;
+        }
+
+        body.difficulty-6 .question-number,
+        body.difficulty-6 .question-text {
+            color: #ffcccc;
+        }
+
+        body.difficulty-6 .answer-input {
+            background: #0a0000;
+            border-color: #ff0000;
+            color: #ffcccc;
+        }
+
+        body.difficulty-6 .submit-button {
+            background: linear-gradient(135deg, #ff0000, #990000);
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Container-Styles für verschiedene Schwierigkeitsstufen */
+        .klassenarbeit-container.difficulty-1 .question-container {
+            border-left-color: #7dd3fc;
+            box-shadow: 0 4px 15px rgba(3, 105, 161, 0.1);
+        }
+
+        .klassenarbeit-container.difficulty-2 .question-container {
+            border-left-color: #86efac;
+            box-shadow: 0 4px 15px rgba(22, 101, 52, 0.1);
+        }
+
+        .klassenarbeit-container.difficulty-3 .question-container {
+            border-left-color: #fcd34d;
+            box-shadow: 0 4px 15px rgba(146, 64, 14, 0.1);
+        }
+
+        .klassenarbeit-container.difficulty-4 .question-container {
+            border-left-color: #fb923c;
+            box-shadow: 0 4px 15px rgba(154, 52, 18, 0.2);
+        }
+
+        .klassenarbeit-container.difficulty-5 .question-container {
+            border-left-color: #f87171;
+            box-shadow: 0 4px 15px rgba(153, 27, 27, 0.2);
+        }
+
+        .klassenarbeit-container.difficulty-6 .question-container {
+            border-left-color: #ff0000;
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+            background: #1a0000;
+        }
+
         @media (max-width: 768px) {
             .timer-display {
                 font-size: 1.8rem;
