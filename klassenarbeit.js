@@ -770,12 +770,12 @@ function closeGradeOverlay() {
     document.getElementById('gradeOverlay').classList.remove('show');
 }
 
-// Verifizierungstexte zum Abschreiben
+// Verifizierungstexte zum Abschreiben (lange Sätze, die wirklich abgeschrieben werden müssen)
 const VERIFICATION_TEXTS = [
-    "Ich bestätige hiermit, dass ich die Klassenarbeit wirklich beenden möchte und verstehe, dass diese Aktion nicht rückgängig gemacht werden kann. Ich habe alle Aufgaben sorgfältig bearbeitet und bin mir sicher, dass ich die Arbeit jetzt schließen möchte.",
-    "Durch das Abschreiben dieses Textes bestätige ich, dass ich die Klassenarbeit endgültig beenden möchte. Ich bin mir bewusst, dass ich nach dem Schließen nicht mehr zurückkehren kann und alle bisherigen Eingaben verloren gehen.",
-    "Ich verstehe vollständig, dass das Schließen der Arbeit eine endgültige Entscheidung ist. Durch das Abschreiben dieses Satzes bestätige ich meine Absicht, die Klassenarbeit jetzt zu beenden, ohne die Möglichkeit, später Änderungen vorzunehmen.",
-    "Mit dem Abschreiben dieses Textes erkläre ich mich damit einverstanden, die Klassenarbeit zu schließen. Ich bin mir der Konsequenzen bewusst und bestätige, dass ich wirklich die Arbeit beenden möchte, ohne weitere Bearbeitungsmöglichkeiten zu haben."
+    "Ich bestätige hiermit ausdrücklich und vollständig, dass ich die Klassenarbeit wirklich und endgültig beenden möchte. Ich verstehe vollkommen, dass diese Aktion nicht rückgängig gemacht werden kann und alle meine bisherigen Eingaben und Antworten unwiderruflich verloren gehen werden. Ich habe alle Aufgaben sorgfältig bearbeitet und bin mir absolut sicher, dass ich die Arbeit jetzt schließen möchte, ohne jemals wieder darauf zugreifen zu können.",
+    "Durch das vollständige und wortwörtliche Abschreiben dieses Textes bestätige ich eindeutig, dass ich die Klassenarbeit endgültig und unwiderruflich beenden möchte. Ich bin mir vollkommen bewusst, dass ich nach dem Schließen nicht mehr zurückkehren kann und alle bisherigen Eingaben, Antworten und Bearbeitungen für immer verloren gehen werden. Diese Entscheidung ist endgültig und kann nicht mehr geändert werden.",
+    "Ich verstehe vollständig und ohne jeden Zweifel, dass das Schließen der Arbeit eine endgültige und unwiderruflich Entscheidung ist. Durch das sorgfältige Abschreiben dieses langen Satzes bestätige ich meine klare Absicht, die Klassenarbeit jetzt sofort zu beenden, ohne die geringste Möglichkeit, später noch Änderungen vorzunehmen oder auf die Arbeit zuzugreifen. Diese Aktion ist endgültig und kann niemals rückgängig gemacht werden.",
+    "Mit dem vollständigen und exakten Abschreiben dieses Textes erkläre ich mich ausdrücklich und endgültig damit einverstanden, die Klassenarbeit zu schließen. Ich bin mir aller Konsequenzen vollkommen bewusst und bestätige eindeutig, dass ich wirklich und wahrhaftig die Arbeit beenden möchte, ohne jemals wieder die Möglichkeit zu haben, weitere Bearbeitungen vorzunehmen oder auf meine Antworten zuzugreifen. Diese Entscheidung ist unwiderruflich."
 ];
 
 let currentVerificationText = '';
