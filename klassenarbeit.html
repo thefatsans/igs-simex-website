@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klassenarbeit - IGS Simex</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Klassenarbeit spezifische Styles */
+        .klassenarbeit-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .timer-container {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-orange));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .timer-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .timer-warning {
+            color: #ffeb3b;
+            animation: pulse 1s infinite;
+        }
+
+        .timer-danger {
+            color: #ff1744;
+            animation: shake 0.5s infinite;
+        }
+
+        .exam-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .exam-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .exam-info {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .question-container {
+            background: var(--bg-white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .question-number {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .answer-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .answer-option:hover {
+            border-color: var(--primary-color);
+            background: rgba(230, 57, 70, 0.05);
+        }
+
+        .answer-option input[type="radio"],
+        .answer-option input[type="checkbox"] {
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-orange));
+            color: white;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Notenanzeige Overlay */
+        .grade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s;
+        }
+
+        .grade-overlay.show {
+            display: flex;
+        }
+
+        .grade-display {
+            text-align: center;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            animation: gradePop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes gradePop {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(5deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* Note 1 - Sehr gut (fröhlich) */
+        .grade-1 {
+            background: linear-gradient(135deg, #4ade80, #22c55e, #16a34a);
+            color: white;
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.5);
+        }
+
+        .grade-1 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .grade-1 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .grade-1 .grade-emoji {
+            font-size: 4rem;
+            animation: pulse 1s infinite;
+        }
+
+        /* Note 2 - Gut */
+        .grade-2 {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.5);
+        }
+
+        .grade-2 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .grade-2 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .grade-2 .grade-emoji {
+            font-size: 4rem;
+        }
+
+        /* Note 3 - Befriedigend */
+        .grade-3 {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            color: white;
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.5);
+        }
+
+        .grade-3 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .grade-3 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .grade-3 .grade-emoji {
+            font-size: 4rem;
+        }
+
+        /* Note 4 - Ausreichend */
+        .grade-4 {
+            background: linear-gradient(135deg, #fb923c, #f97316, #ea580c);
+            color: white;
+            box-shadow: 0 20px 60px rgba(249, 115, 22, 0.5);
+        }
+
+        .grade-4 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .grade-4 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .grade-4 .grade-emoji {
+            font-size: 4rem;
+        }
+
+        /* Note 5 - Mangelhaft */
+        .grade-5 {
+            background: linear-gradient(135deg, #f87171, #ef4444, #dc2626);
+            color: white;
+            box-shadow: 0 20px 60px rgba(239, 68, 68, 0.5);
+        }
+
+        .grade-5 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            animation: shake 0.5s infinite;
+        }
+
+        .grade-5 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .grade-5 .grade-emoji {
+            font-size: 4rem;
+        }
+
+        /* Note 6 - Ungenügend */
+        .grade-6 {
+            background: linear-gradient(135deg, #991b1b, #7f1d1d, #450a0a);
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .grade-6 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(255, 0, 0, 0.5);
+            animation: shake 0.3s infinite;
+        }
+
+        .grade-6 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .grade-6 .grade-emoji {
+            font-size: 4rem;
+        }
+
+        /* Note 7 - Stinkig (killer design) */
+        .grade-7 {
+            background: linear-gradient(135deg, #000000, #1a0000, #000000);
+            color: #ff0000;
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.8), inset 0 0 50px rgba(255, 0, 0, 0.3);
+            border: 3px solid #ff0000;
+            animation: darkPulse 1s infinite;
+        }
+
+        @keyframes darkPulse {
+            0%, 100% {
+                box-shadow: 0 20px 60px rgba(255, 0, 0, 0.8), inset 0 0 50px rgba(255, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 20px 80px rgba(255, 0, 0, 1), inset 0 0 80px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        .grade-7 .grade-number {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 3px 3px 10px rgba(255, 0, 0, 0.8);
+            animation: killerShake 0.2s infinite, glow 1s infinite;
+        }
+
+        @keyframes killerShake {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            10% { transform: translate(-5px, -5px) rotate(-2deg); }
+            20% { transform: translate(5px, 5px) rotate(2deg); }
+            30% { transform: translate(-5px, 5px) rotate(-2deg); }
+            40% { transform: translate(5px, -5px) rotate(2deg); }
+            50% { transform: translate(-5px, -5px) rotate(-2deg); }
+            60% { transform: translate(5px, 5px) rotate(2deg); }
+            70% { transform: translate(-5px, 5px) rotate(-2deg); }
+            80% { transform: translate(5px, -5px) rotate(2deg); }
+            90% { transform: translate(-5px, -5px) rotate(-2deg); }
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        .grade-7 .grade-label {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 0 0 10px #ff0000;
+            animation: flicker 0.3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .grade-7 .grade-emoji {
+            font-size: 4rem;
+            animation: rotate 2s infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .grade-stats {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .grade-close {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .grade-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .points-display {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Auswahlseite Styles */
+        .exam-selection-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .selection-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .selection-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .selection-subtitle {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .exam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .exam-card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exam-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-orange));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .exam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .exam-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .exam-card-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .exam-card-info {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .exam-card-duration {
+            color: var(--primary-orange);
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Bestätigungsmodal */
+        .confirmation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s;
+        }
+
+        .confirmation-overlay.show {
+            display: flex;
+        }
+
+        .confirmation-modal {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.4s;
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .confirmation-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .confirmation-text {
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .confirmation-button {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .confirmation-button.confirm {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-orange));
+            color: white;
+        }
+
+        .confirmation-button.confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .confirmation-button.cancel {
+            background: #e5e7eb;
+            color: var(--text-dark);
+        }
+
+        .confirmation-button.cancel:hover {
+            background: #d1d5db;
+        }
+
+        /* Verstecke Auswahl, wenn Arbeit gestartet */
+        .exam-selection-container.hidden {
+            display: none;
+        }
+
+        .klassenarbeit-container.hidden {
+            display: none;
+        }
+
+        /* Schwierigkeitsauswahl */
+        .difficulty-selection {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .difficulty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .difficulty-card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .difficulty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .difficulty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Stufe 1: Babys - Schön und friedlich */
+        .difficulty-1 {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            border-color: #7dd3fc;
+        }
+
+        .difficulty-1:hover {
+            border-color: #38bdf8;
+        }
+
+        .difficulty-1::before {
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+        }
+
+        .difficulty-1:hover::before {
+            opacity: 1;
+        }
+
+        /* Stufe 2: Einfach */
+        .difficulty-2 {
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            border-color: #86efac;
+        }
+
+        .difficulty-2:hover {
+            border-color: #4ade80;
+        }
+
+        /* Stufe 3: Mittel */
+        .difficulty-3 {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-color: #fcd34d;
+        }
+
+        .difficulty-3:hover {
+            border-color: #fbbf24;
+        }
+
+        /* Stufe 4: Hard */
+        .difficulty-4 {
+            background: linear-gradient(135deg, #fed7aa, #fdba74);
+            border-color: #fb923c;
+        }
+
+        .difficulty-4:hover {
+            border-color: #f97316;
+        }
+
+        /* Stufe 5: Extreme */
+        .difficulty-5 {
+            background: linear-gradient(135deg, #fecaca, #fca5a5);
+            border-color: #f87171;
+        }
+
+        .difficulty-5:hover {
+            border-color: #ef4444;
+        }
+
+        /* Stufe 6: Unerträglich - Brutal und grausam */
+        .difficulty-6 {
+            background: linear-gradient(135deg, #1a0000, #000000);
+            border-color: #ff0000;
+            color: white;
+        }
+
+        .difficulty-6:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .difficulty-6::before {
+            background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, transparent 70%);
+        }
+
+        .difficulty-6:hover::before {
+            opacity: 1;
+        }
+
+        .difficulty-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .difficulty-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Extra-Zeit und Tipp Buttons */
+        .exam-tools {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tool-button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .extra-time-button {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+
+        .extra-time-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .hint-button {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .hint-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .tool-button.used {
+            background: #9ca3af;
+            animation: fadeOut 0.5s;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        /* Tipp-Anzeige */
+        .hint-display {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            animation: slideInDown 0.5s;
+        }
+
+        .hint-display h4 {
+            color: #d97706;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Minus-Punkte Anzeige */
+        .negative-points {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .question-container.negative {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        /* Schließen-Button */
+        .close-exam-button {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .close-exam-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.4);
+            background: linear-gradient(135deg, #4b5563, #374151);
+        }
+
+        /* Verifizierungs-Modal */
+        .verification-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            animation: fadeIn 0.3s;
+        }
+
+        .verification-overlay.hidden {
+            display: none;
+        }
+
+        .verification-modal {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideInUp 0.4s;
+        }
+
+        .verification-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .verification-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .verification-text {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .verification-quote {
+            background: #f3f4f6;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            white-space: pre-wrap;
+        }
+
+        .verification-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .verification-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        .verification-input.correct {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+
+        .verification-input.incorrect {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .verification-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .verification-button {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .verification-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .verification-button.confirm {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-orange));
+            color: white;
+        }
+
+        .verification-button.confirm:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .verification-button.cancel {
+            background: #e5e7eb;
+            color: var(--text-dark);
+        }
+
+        .verification-button.cancel:hover {
+            background: #d1d5db;
+        }
+
+        .verification-hint {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .verification-hint.correct {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .verification-hint.incorrect {
+            color: #ef4444;
+        }
+
+        @media (max-width: 768px) {
+            .timer-display {
+                font-size: 1.8rem;
+            }
+
+            .grade-number {
+                font-size: 5rem !important;
+            }
+
+            .grade-label {
+                font-size: 1.8rem !important;
+            }
+
+            .question-container {
+                padding: 1.5rem;
+            }
+
+            .exam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .confirmation-modal {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="INTEGRIERTE GESAMT SIMEX.png" alt="IGS Simex Logo" class="logo-img">
+                <span class="logo-text">IGS Simex</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Startseite</a></li>
+                <li><a href="index.html#about" class="nav-link">Über uns</a></li>
+                <li><a href="index.html#news" class="nav-link">Aktuelles</a></li>
+                <li><a href="index.html#courses" class="nav-link">Angebote</a></li>
+                <li><a href="kollegium.html" class="nav-link">Kollegium</a></li>
+                <li><a href="terminplan.html" class="nav-link">Terminplan</a></li>
+                <li><a href="downloads.html" class="nav-link">Downloads</a></li>
+                <li><a href="klassenarbeit.html" class="nav-link">Klassenarbeit</a></li>
+                <li><a href="index.html#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auswahlseite -->
+    <div class="exam-selection-container" id="examSelectionContainer">
+        <div class="selection-header">
+            <h1 class="selection-title">Klassenarbeit auswählen</h1>
+            <p class="selection-subtitle">Wählen Sie die Klassenarbeit aus, die Sie schreiben möchten</p>
+        </div>
+        <div class="exam-grid" id="examGrid">
+            <!-- Klassenarbeiten werden hier dynamisch eingefügt -->
+        </div>
+    </div>
+
+    <!-- Bestätigungsmodal -->
+    <div class="confirmation-overlay" id="confirmationOverlay">
+        <div class="confirmation-modal">
+            <div class="confirmation-icon">⚠️</div>
+            <h2 class="confirmation-title">Klassenarbeit starten?</h2>
+            <p class="confirmation-text" id="confirmationText">
+                Möchten Sie diese Klassenarbeit wirklich starten?<br>
+                Der Timer beginnt sofort und Sie können nicht mehr zurückgehen!
+            </p>
+            <div class="confirmation-buttons">
+                <button class="confirmation-button confirm" id="confirmStartButton">Ja, starten</button>
+                <button class="confirmation-button cancel" id="cancelStartButton">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schwierigkeitsauswahl (versteckt bis Arbeit ausgewählt) -->
+    <div class="difficulty-selection hidden" id="difficultySelection">
+        <div class="selection-header">
+            <h1 class="selection-title">Schwierigkeitsstufe wählen</h1>
+            <p class="selection-subtitle">Wählen Sie die Schwierigkeitsstufe für Ihre Klassenarbeit</p>
+        </div>
+        <div class="difficulty-grid" id="difficultyGrid">
+            <!-- Schwierigkeitsstufen werden hier eingefügt -->
+        </div>
+    </div>
+
+    <!-- Klassenarbeit Container (versteckt bis Start) -->
+    <div class="klassenarbeit-container hidden" id="klassenarbeitContainer">
+        <!-- Timer -->
+        <div class="timer-container" id="timerContainer">
+            <div class="timer-display" id="timerDisplay">00:00:00</div>
+        </div>
+
+        <!-- Exam Header -->
+        <div class="exam-header">
+            <h1 class="exam-title" id="examTitle">Klassenarbeit</h1>
+            <p class="exam-info" id="examInfo">Bitte bearbeiten Sie alle Aufgaben sorgfältig.</p>
+        </div>
+
+        <!-- Extra-Zeit und Tipp Buttons -->
+        <div class="exam-tools">
+            <button class="tool-button extra-time-button" id="extraTimeButton">
+                ⏱️ +10 Minuten Extra-Zeit
+            </button>
+            <button class="tool-button hint-button" id="hintButton">
+                💡 Tipp anzeigen
+            </button>
+        </div>
+
+        <!-- Tipp-Anzeige (versteckt) -->
+        <div class="hint-display hidden" id="hintDisplay">
+            <h4>💡 Tipp:</h4>
+            <p id="hintText"></p>
+        </div>
+
+        <!-- Exam Form -->
+        <form id="examForm">
+            <div id="questionsContainer">
+                <!-- Fragen werden hier dynamisch eingefügt -->
+            </div>
+
+            <div class="submit-container">
+                <button type="submit" class="submit-button" id="submitButton">Arbeit abgeben</button>
+                <button type="button" class="close-exam-button" id="closeExamButton">Arbeit schließen</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Verifizierungs-Modal zum Schließen -->
+    <div class="verification-overlay hidden" id="verificationOverlay">
+        <div class="verification-modal">
+            <div class="verification-icon">⚠️</div>
+            <h2 class="verification-title">Arbeit wirklich schließen?</h2>
+            <p class="verification-text">
+                Um die Arbeit zu schließen, müssen Sie den folgenden Text <strong>wortwörtlich</strong> abschreiben:
+            </p>
+            <div class="verification-quote" id="verificationQuote">
+                <!-- Text wird hier eingefügt -->
+            </div>
+            <textarea 
+                class="verification-input" 
+                id="verificationInput" 
+                placeholder="Schreiben Sie den Text hier ab..."
+                rows="6"></textarea>
+            <div class="verification-buttons">
+                <button class="verification-button cancel" id="cancelVerificationButton">Abbrechen</button>
+                <button class="verification-button confirm" id="confirmVerificationButton" disabled>Bestätigen</button>
+            </div>
+            <p class="verification-hint" id="verificationHint"></p>
+        </div>
+    </div>
+
+    <!-- Grade Overlay -->
+    <div class="grade-overlay" id="gradeOverlay">
+        <div class="grade-display" id="gradeDisplay">
+            <div class="grade-emoji" id="gradeEmoji">🎉</div>
+            <div class="grade-number" id="gradeNumber">1</div>
+            <div class="grade-label" id="gradeLabel">Sehr gut</div>
+            <div class="points-display" id="pointsDisplay">0 / 0 Punkte</div>
+            <div class="grade-stats" id="gradeStats"></div>
+            <button class="grade-close" onclick="closeGradeOverlay()">Schließen</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="math-exam-data.js"></script>
+    <script src="klassenarbeit.js"></script>
+</body>
+</html>

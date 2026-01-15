@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klassenarbeit zurücksetzen - IGS Simex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .reset-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .reset-button {
+            background: linear-gradient(135deg, #e63946, #f77f00);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .reset-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+        }
+        .success {
+            color: #22c55e;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: none;
+        }
+        .info {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="reset-container">
+        <h1>🔄 Klassenarbeit zurücksetzen</h1>
+        <p>Diese Seite löscht alle gespeicherten Daten für die Klassenarbeit, damit Sie sie neu starten können.</p>
+        
+        <button class="reset-button" onclick="resetExamData()">Alle Daten löschen</button>
+        
+        <div class="success" id="successMessage">
+            ✅ Alle Daten wurden erfolgreich gelöscht!<br>
+            Sie können die Seite jetzt schließen.
+        </div>
+        
+        <div class="info">
+            <strong>Was wird gelöscht:</strong><br>
+            • Timer-Startzeit<br>
+            • Ausgewählte Arbeit<br>
+            • Schwierigkeitsstufe<br>
+            • Extra-Zeit Status<br>
+            • Tipp-Status<br>
+            • Abgabe-Status
+        </div>
+    </div>
+
+    <script>
+        function resetExamData() {
+            // Alle relevanten localStorage Keys löschen
+            const keysToDelete = [
+                'exam_timer_start',
+                'exam_started',
+                'exam_submitted',
+                'selected_exam_id',
+                'selected_difficulty',
+                'extra_time_used',
+                'hint_used',
+                'hint_question_id'
+            ];
+
+            let deletedCount = 0;
+            keysToDelete.forEach(key => {
+                if (localStorage.getItem(key) !== null) {
+                    localStorage.removeItem(key);
+                    deletedCount++;
+                }
+            });
+
+            // Erfolgsmeldung anzeigen
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            successMessage.innerHTML = `
+                ✅ Erfolgreich gelöscht!<br>
+                ${deletedCount} Datensätze wurden entfernt.<br><br>
+                <a href="klassenarbeit.html" style="color: #e63946; text-decoration: none; font-weight: bold;">→ Zur Klassenarbeit</a>
+            `;
+
+            // Button deaktivieren
+            const button = document.querySelector('.reset-button');
+            button.disabled = true;
+            button.textContent = 'Daten gelöscht ✓';
+            button.style.opacity = '0.6';
+        }
+
+        // Zeige aktuelle Daten (optional)
+        window.onload = function() {
+            const keysToCheck = [
+                'exam_timer_start',
+                'exam_started',
+                'exam_submitted',
+                'selected_exam_id',
+                'selected_difficulty'
+            ];
+
+            let hasData = false;
+            keysToCheck.forEach(key => {
+                if (localStorage.getItem(key) !== null) {
+                    hasData = true;
+                }
+            });
+
+            if (!hasData) {
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                successMessage.style.color = '#6b7280';
+                successMessage.innerHTML = 'ℹ️ Keine Daten zum Löschen gefunden.';
+            }
+        };
+    </script>
+</body>
+</html>
