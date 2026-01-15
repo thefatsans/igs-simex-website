@@ -94,22 +94,22 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 9,
                 type: 'text',
-                question: 'Was ist 1/2 + 1/4? (Kürze das Ergebnis)',
+                question: 'Lisa hat eine Tafel Schokolade. Sie isst 1/2 davon. Am nächsten Tag isst sie noch 1/4 der ganzen Tafel. Wie viel Schokolade hat sie insgesamt gegessen? (Antworte als gekürzter Bruch)',
                 points: 4,
                 negativePoints: 1,
                 correctAnswer: '3/4',
-                keywords: ['3/4'],
+                keywords: ['3/4', 'drei viertel'],
                 hint: 'Zuerst auf gemeinsamen Nenner bringen: 1/2 = 2/4. Dann: 2/4 + 1/4 = 3/4.'
             },
             {
                 id: 10,
                 type: 'text',
-                question: 'Erweitere 2/3 mit 4.',
+                question: 'Tom hat 24 Gummibärchen. Er gibt seinem Freund 2/3 davon. Wie viele Gummibärchen behält Tom? (Antworte als Zahl)',
                 points: 3,
                 negativePoints: 1,
-                correctAnswer: '8/12',
-                keywords: ['8/12'],
-                hint: '2/3 mit 4 erweitert = (2×4)/(3×4) = 8/12.'
+                correctAnswer: '8',
+                keywords: ['8'],
+                hint: 'Tom gibt 2/3 weg, also behält er 1/3. 1/3 von 24 = 24 ÷ 3 = 8.'
             }
         ]
     },
@@ -225,12 +225,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 11,
                 type: 'text',
-                question: 'Berechne: 2/5 + 1/10 (kürze das Ergebnis)',
+                question: 'In einer Klasse sind 30 Schüler. 2/5 der Schüler spielen Fußball und 1/10 spielen Basketball. Wie viele Schüler spielen zusammen Fußball und Basketball? (Antworte als gekürzter Bruch der Gesamtzahl)',
                 points: 5,
                 negativePoints: 2,
                 correctAnswer: '1/2',
-                keywords: ['1/2'],
-                hint: 'Auf gemeinsamen Nenner: 2/5 = 4/10. Dann: 4/10 + 1/10 = 5/10 = 1/2.'
+                keywords: ['1/2', 'halb', '15'],
+                hint: 'Auf gemeinsamen Nenner: 2/5 = 4/10. Dann: 4/10 + 1/10 = 5/10 = 1/2. Das sind 15 von 30 Schülern.'
             }
         ]
     },
@@ -276,12 +276,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 4,
                 type: 'text',
-                question: 'Berechne: 3/4 - 1/8 (kürze das Ergebnis)',
+                question: 'Emma hat 3/4 Liter Saft. Sie trinkt 1/8 Liter davon. Wie viel Saft bleibt übrig? (Antworte als gekürzter Bruch)',
                 points: 5,
                 negativePoints: 2,
                 correctAnswer: '5/8',
                 keywords: ['5/8'],
-                hint: 'Auf gemeinsamen Nenner: 3/4 = 6/8. Dann: 6/8 - 1/8 = 5/8.'
+                hint: 'Auf gemeinsamen Nenner: 3/4 = 6/8. Dann: 6/8 - 1/8 = 5/8 Liter bleiben übrig.'
             },
             {
                 id: 5,
@@ -348,12 +348,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 11,
                 type: 'text',
-                question: 'Berechne: 5/6 - 1/4 (kürze das Ergebnis)',
+                question: 'Ein Kuchen wird in 12 gleich große Stücke geteilt. Max isst 5/6 des Kuchens und seine Schwester isst 1/4 des Kuchens. Wie viel mehr Kuchen hat Max gegessen? (Antworte als gekürzter Bruch)',
                 points: 6,
                 negativePoints: 2,
                 correctAnswer: '7/12',
                 keywords: ['7/12'],
-                hint: 'Auf gemeinsamen Nenner: 5/6 = 10/12, 1/4 = 3/12. Dann: 10/12 - 3/12 = 7/12.'
+                hint: 'Auf gemeinsamen Nenner: 5/6 = 10/12, 1/4 = 3/12. Dann: 10/12 - 3/12 = 7/12 mehr.'
             },
             {
                 id: 12,
@@ -395,7 +395,7 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 3,
                 type: 'text',
-                question: 'Berechne: 3/7 + 4/9 (kürze das Ergebnis)',
+                question: 'In einem Schwimmbad sind 3/7 der Besucher Kinder und 4/9 sind Erwachsene. Wie viel der Besucher sind zusammen Kinder und Erwachsene? (Antworte als gekürzter Bruch)',
                 points: 7,
                 negativePoints: 3,
                 correctAnswer: '55/63',
@@ -415,12 +415,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 5,
                 type: 'text',
-                question: 'Berechne: 5/8 - 2/7 (kürze das Ergebnis)',
+                question: 'Ein Rezept benötigt 5/8 Liter Milch. In der Flasche sind noch 2/7 Liter übrig. Wie viel Milch fehlt noch? (Antworte als gekürzter Bruch)',
                 points: 7,
                 negativePoints: 3,
                 correctAnswer: '19/56',
                 keywords: ['19/56'],
-                hint: 'Auf gemeinsamen Nenner: 5/8 = 35/56, 2/7 = 16/56. Dann: 35/56 - 16/56 = 19/56.'
+                hint: 'Auf gemeinsamen Nenner: 5/8 = 35/56, 2/7 = 16/56. Dann: 35/56 - 16/56 = 19/56 Liter fehlen.'
             },
             {
                 id: 6,
@@ -447,12 +447,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 8,
                 type: 'text',
-                question: 'Berechne: 4/5 + 3/7 (kürze das Ergebnis)',
+                question: 'Anna liest am Montag 4/5 eines Buches und am Dienstag 3/7 desselben Buches. Wie viel des Buches hat sie insgesamt gelesen? (Antworte als gekürzter Bruch)',
                 points: 7,
                 negativePoints: 3,
                 correctAnswer: '43/35',
                 keywords: ['43/35'],
-                hint: 'Auf gemeinsamen Nenner: 4/5 = 28/35, 3/7 = 15/35. Dann: 28/35 + 15/35 = 43/35.'
+                hint: 'Auf gemeinsamen Nenner: 4/5 = 28/35, 3/7 = 15/35. Dann: 28/35 + 15/35 = 43/35. (Das ist mehr als ein ganzes Buch!)'
             },
             {
                 id: 9,
@@ -477,12 +477,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 11,
                 type: 'text',
-                question: 'Berechne: 6/11 - 3/8 (kürze das Ergebnis)',
+                question: 'Ein Gärtner hat 6/11 eines Beetes mit Blumen bepflanzt. Später entfernt er 3/8 des Beetes wieder. Wie viel des Beetes ist jetzt noch mit Blumen bepflanzt? (Antworte als gekürzter Bruch)',
                 points: 7,
                 negativePoints: 3,
                 correctAnswer: '15/88',
                 keywords: ['15/88'],
-                hint: 'Auf gemeinsamen Nenner: 6/11 = 48/88, 3/8 = 33/88. Dann: 48/88 - 33/88 = 15/88.'
+                hint: 'Auf gemeinsamen Nenner: 6/11 = 48/88, 3/8 = 33/88. Dann: 48/88 - 33/88 = 15/88 des Beetes.'
             },
             {
                 id: 12,
@@ -534,7 +534,7 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 3,
                 type: 'text',
-                question: 'Berechne: 8/13 + 7/11 (kürze das Ergebnis)',
+                question: 'Ein Marathonläufer läuft am ersten Tag 8/13 der Strecke und am zweiten Tag 7/11 der Strecke. Wie viel der gesamten Strecke hat er in beiden Tagen zusammen zurückgelegt? (Antworte als gekürzter Bruch)',
                 points: 8,
                 negativePoints: 4,
                 correctAnswer: '149/143',
@@ -554,12 +554,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 5,
                 type: 'text',
-                question: 'Berechne: 11/15 - 7/12 (kürze das Ergebnis)',
+                question: 'Ein Tank ist zu 11/15 gefüllt. Nach dem Verbrauch sind noch 7/12 des Tanks übrig. Wie viel wurde verbraucht? (Antworte als gekürzter Bruch)',
                 points: 8,
                 negativePoints: 4,
                 correctAnswer: '3/20',
                 keywords: ['3/20'],
-                hint: 'Auf gemeinsamen Nenner: 11/15 = 44/60, 7/12 = 35/60. Dann: 44/60 - 35/60 = 9/60 = 3/20.'
+                hint: 'Auf gemeinsamen Nenner: 11/15 = 44/60, 7/12 = 35/60. Dann: 44/60 - 35/60 = 9/60 = 3/20 wurde verbraucht.'
             },
             {
                 id: 6,
@@ -683,7 +683,7 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 3,
                 type: 'text',
-                question: 'Berechne: 17/23 + 19/29 (kürze das Ergebnis)',
+                question: 'Ein Unternehmen produziert am ersten Monat 17/23 seiner Jahresproduktion und im zweiten Monat 19/29. Wie viel der Jahresproduktion wurde in beiden Monaten zusammen produziert? (Antworte als gekürzter Bruch)',
                 points: 10,
                 negativePoints: 5,
                 correctAnswer: '960/667',
@@ -703,7 +703,7 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 5,
                 type: 'text',
-                question: 'Berechne: 23/31 - 19/28 (kürze das Ergebnis)',
+                question: 'Ein Bauprojekt ist zu 23/31 fertiggestellt. Durch Verzögerungen wird der Fortschritt auf 19/28 reduziert. Wie viel des Projekts wurde durch die Verzögerung verloren? (Antworte als gekürzter Bruch)',
                 points: 10,
                 negativePoints: 5,
                 correctAnswer: '115/868',
