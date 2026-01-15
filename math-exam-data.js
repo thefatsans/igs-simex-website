@@ -49,23 +49,27 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 5,
-                type: 'text',
-                question: 'Zeige auf dem Zahlenstrahl: Wo liegt 1/2? (Antworte mit einer Zahl zwischen 0 und 1)',
+                type: 'numberline',
+                question: 'Markiere auf dem Zahlenstrahl, wo 1/2 liegt.',
                 points: 3,
                 negativePoints: 1,
                 correctAnswer: '0.5',
-                keywords: ['0.5', '0,5', 'halb'],
+                numberlineRange: { min: 0, max: 1 },
+                numberlineSteps: [0, 0.25, 0.5, 0.75, 1],
+                tolerance: 0.05,
                 hint: '1/2 liegt genau in der Mitte zwischen 0 und 1, also bei 0.5.'
             },
             {
                 id: 6,
-                type: 'text',
-                question: 'Welcher Bruch ist größer: 1/2 oder 1/4?',
+                type: 'fraction-visual',
+                question: 'Welcher Bruch ist dargestellt? Klicke auf den richtigen Bruch.',
                 points: 2,
                 negativePoints: 0,
                 correctAnswer: '1/2',
-                keywords: ['1/2'],
-                hint: 'Je größer der Nenner, desto kleiner der Bruch (bei gleichem Zähler). 1/2 ist größer als 1/4.'
+                visualType: 'circle',
+                visualValue: 0.5,
+                options: ['1/4', '1/2', '3/4', '1/3'],
+                hint: 'Der Kreis ist zur Hälfte gefüllt, also 1/2.'
             },
             {
                 id: 7,
@@ -116,13 +120,15 @@ const MATH_EXAM_DIFFICULTIES = {
         questions: [
             {
                 id: 1,
-                type: 'text',
-                question: 'Erweitere 2/5 mit 3.',
+                type: 'numberline',
+                question: 'Markiere auf dem Zahlenstrahl, wo 3/4 liegt.',
                 points: 3,
                 negativePoints: 1,
-                correctAnswer: '6/15',
-                keywords: ['6/15'],
-                hint: '2/5 mit 3 erweitert = (2×3)/(5×3) = 6/15.'
+                correctAnswer: '0.75',
+                numberlineRange: { min: 0, max: 1 },
+                numberlineSteps: [0, 0.25, 0.5, 0.75, 1],
+                tolerance: 0.05,
+                hint: '3/4 = 0.75, also drei Viertel des Weges von 0 zu 1.'
             },
             {
                 id: 2,
@@ -136,13 +142,15 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 3,
-                type: 'text',
-                question: 'Wo liegt 3/4 auf dem Zahlenstrahl? (Antworte mit Dezimalzahl)',
-                points: 3,
+                type: 'compare-visual',
+                question: 'Vergleiche die beiden Brüche. Welcher ist größer?',
+                points: 4,
                 negativePoints: 1,
-                correctAnswer: '0.75',
-                keywords: ['0.75', '0,75'],
-                hint: '3/4 = 0.75, also drei Viertel des Weges von 0 zu 1.'
+                correctAnswer: '3/4',
+                fraction1: { value: 0.5, display: '1/2' },
+                fraction2: { value: 0.75, display: '3/4' },
+                options: ['1/2', '3/4', 'Gleich groß'],
+                hint: 'Auf gemeinsamen Nenner: 1/2 = 2/4, 3/4 = 3/4. 3/4 > 2/4, also ist 3/4 größer.'
             },
             {
                 id: 4,
@@ -233,13 +241,15 @@ const MATH_EXAM_DIFFICULTIES = {
         questions: [
             {
                 id: 1,
-                type: 'text',
-                question: 'Erweitere 4/9 mit 7.',
-                points: 3,
+                type: 'numberline',
+                question: 'Markiere auf dem Zahlenstrahl, wo 5/8 liegt.',
+                points: 4,
                 negativePoints: 1,
-                correctAnswer: '28/63',
-                keywords: ['28/63'],
-                hint: '4/9 mit 7 erweitert = (4×7)/(9×7) = 28/63.'
+                correctAnswer: '0.625',
+                numberlineRange: { min: 0, max: 1 },
+                numberlineSteps: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
+                tolerance: 0.03,
+                hint: '5/8 = 0.625. Du kannst auch 5 durch 8 teilen.'
             },
             {
                 id: 2,
@@ -253,13 +263,15 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 3,
-                type: 'text',
-                question: 'Vergleiche: Welcher Bruch ist größer - 5/8 oder 2/3?',
-                points: 5,
-                negativePoints: 2,
+                type: 'fraction-visual',
+                question: 'Welcher Bruch ist dargestellt?',
+                points: 4,
+                negativePoints: 1,
                 correctAnswer: '2/3',
-                keywords: ['2/3'],
-                hint: 'Auf gemeinsamen Nenner: 5/8 = 15/24, 2/3 = 16/24. 16/24 > 15/24, also ist 2/3 größer.'
+                visualType: 'rectangle',
+                visualValue: 0.667,
+                options: ['1/2', '2/3', '3/4', '4/5'],
+                hint: 'Das Rechteck ist zu zwei Dritteln gefüllt, also 2/3.'
             },
             {
                 id: 4,
@@ -293,12 +305,14 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 7,
-                type: 'text',
-                question: 'Wo liegt 7/12 auf dem Zahlenstrahl? (Antworte mit Dezimalzahl, gerundet auf 2 Stellen)',
+                type: 'numberline',
+                question: 'Markiere auf dem Zahlenstrahl, wo 7/12 liegt.',
                 points: 4,
                 negativePoints: 1,
-                correctAnswer: '0.58',
-                keywords: ['0.58', '0,58'],
+                correctAnswer: '0.583',
+                numberlineRange: { min: 0, max: 1 },
+                numberlineSteps: [0, 0.25, 0.5, 0.75, 1],
+                tolerance: 0.05,
                 hint: '7/12 = 0.5833... ≈ 0.58'
             },
             {
@@ -420,13 +434,15 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 7,
-                type: 'text',
-                question: 'Wo liegt 11/16 auf dem Zahlenstrahl? (Antworte mit Dezimalzahl, gerundet auf 3 Stellen)',
+                type: 'fraction-visual',
+                question: 'Welcher Bruch ist dargestellt?',
                 points: 4,
                 negativePoints: 1,
-                correctAnswer: '0.688',
-                keywords: ['0.688', '0,688'],
-                hint: '11/16 = 0.6875 ≈ 0.688'
+                correctAnswer: '3/4',
+                visualType: 'rectangle',
+                visualValue: 0.75,
+                options: ['1/2', '2/3', '3/4', '4/5'],
+                hint: 'Das Rechteck ist zu drei Vierteln gefüllt, also 3/4.'
             },
             {
                 id: 8,
@@ -557,12 +573,14 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 7,
-                type: 'text',
-                question: 'Wo liegt 17/24 auf dem Zahlenstrahl? (Antworte mit Dezimalzahl, gerundet auf 3 Stellen)',
+                type: 'numberline',
+                question: 'Markiere auf dem Zahlenstrahl, wo 17/24 liegt.',
                 points: 5,
                 negativePoints: 2,
                 correctAnswer: '0.708',
-                keywords: ['0.708', '0,708'],
+                numberlineRange: { min: 0, max: 1 },
+                numberlineSteps: [0, 0.25, 0.5, 0.75, 1],
+                tolerance: 0.03,
                 hint: '17/24 = 0.7083... ≈ 0.708'
             },
             {
@@ -704,13 +722,15 @@ const MATH_EXAM_DIFFICULTIES = {
             },
             {
                 id: 7,
-                type: 'text',
-                question: 'Wo liegt 29/41 auf dem Zahlenstrahl? (Antworte mit Dezimalzahl, gerundet auf 4 Stellen)',
+                type: 'compare-visual',
+                question: 'Vergleiche die beiden Brüche. Welcher ist größer?',
                 points: 6,
                 negativePoints: 3,
-                correctAnswer: '0.7073',
-                keywords: ['0.7073', '0,7073'],
-                hint: '29/41 = 0.7073... ≈ 0.7073'
+                correctAnswer: '7/11',
+                fraction1: { value: 0.636, display: '7/11' },
+                fraction2: { value: 0.615, display: '8/13' },
+                options: ['7/11', '8/13', 'Gleich groß'],
+                hint: 'Auf gemeinsamen Nenner: 7/11 = 91/143, 8/13 = 88/143. 91/143 > 88/143, also ist 7/11 größer.'
             },
             {
                 id: 8,

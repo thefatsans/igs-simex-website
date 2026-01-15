@@ -592,6 +592,109 @@ function renderQuestions() {
                 `;
             });
             answerHTML += '</div>';
+        } else if (q.type === 'numberline') {
+            const range = q.numberlineRange || { min: 0, max: 1 };
+            const steps = q.numberlineSteps || [];
+            answerHTML = `
+                <div class="numberline-container" id="numberline_${q.id}">
+                    <div class="numberline" style="position: relative; width: 100%; height: 80px; margin: 20px 0;">
+                        <svg style="width: 100%; height: 100%;">
+                            <line x1="5%" y1="50%" x2="95%" y2="50%" stroke="#333" stroke-width="3" />
+                            ${steps.map((step, i) => `
+                                <line x1="${5 + (step - range.min) / (range.max - range.min) * 90}%" 
+                                      y1="45%" 
+                                      x2="${5 + (step - range.min) / (range.max - range.min) * 90}%" 
+                                      y2="55%" 
+                                      stroke="#333" 
+                                      stroke-width="2" />
+                                <text x="${5 + (step - range.min) / (range.max - range.min) * 90}%" 
+                                      y="70%" 
+                                      text-anchor="middle" 
+                                      font-size="14" 
+                                      fill="#333">${step}</text>
+                            `).join('')}
+                            <circle id="marker_${q.id}" 
+                                    cx="50%" 
+                                    cy="50%" 
+                                    r="8" 
+                                    fill="#e63946" 
+                                    stroke="#fff" 
+                                    stroke-width="2" 
+                                    style="cursor: move; display: none;" />
+                        </svg>
+                    </div>
+                    <div class="numberline-controls">
+                        <button type="button" class="numberline-reset" onclick="resetNumberline(${q.id})">Zurücksetzen</button>
+                        <span class="numberline-value" id="numberline_value_${q.id}">Klicken Sie auf den Zahlenstrahl</span>
+                    </div>
+                    <input type="hidden" id="answer_${q.id}" name="question_${q.id}" value="">
+                </div>
+            `;
+        } else if (q.type === 'fraction-visual') {
+            const visualValue = q.visualValue || 0.5;
+            const visualType = q.visualType || 'circle';
+            answerHTML = `
+                <div class="fraction-visual-container" id="fraction_visual_${q.id}">
+                    <div class="fraction-display">
+                        ${visualType === 'circle' ? `
+                            <svg width="200" height="200" style="margin: 20px auto; display: block;">
+                                <circle cx="100" cy="100" r="90" fill="#e5e7eb" stroke="#333" stroke-width="3"/>
+                                <path d="M 100 100 L 100 10 A 90 90 0 ${visualValue > 0.5 ? '1' : '0'} 1 ${100 + 90 * Math.cos(2 * Math.PI * visualValue - Math.PI / 2)} ${100 + 90 * Math.sin(2 * Math.PI * visualValue - Math.PI / 2)} Z" 
+                                      fill="#e63946" 
+                                      stroke="#333" 
+                                      stroke-width="2"/>
+                            </svg>
+                        ` : `
+                            <div class="fraction-rectangle" style="width: 300px; height: 100px; margin: 20px auto; border: 3px solid #333; position: relative; background: #e5e7eb;">
+                                <div style="width: ${visualValue * 100}%; height: 100%; background: #e63946;"></div>
+                            </div>
+                        `}
+                    </div>
+                    <div class="fraction-options">
+                        ${q.options.map((option, optIndex) => `
+                            <label class="fraction-option">
+                                <input type="radio" 
+                                       name="question_${q.id}" 
+                                       value="${option}"
+                                       id="answer_${q.id}_${optIndex}">
+                                <span>${option}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        } else if (q.type === 'compare-visual') {
+            const frac1 = q.fraction1 || { value: 0.5, display: '1/2' };
+            const frac2 = q.fraction2 || { value: 0.75, display: '3/4' };
+            answerHTML = `
+                <div class="compare-visual-container" id="compare_visual_${q.id}">
+                    <div class="compare-fractions">
+                        <div class="compare-fraction">
+                            <div class="fraction-rectangle" style="width: 250px; height: 80px; margin: 10px auto; border: 3px solid #333; position: relative; background: #e5e7eb;">
+                                <div style="width: ${frac1.value * 100}%; height: 100%; background: #3b82f6;"></div>
+                            </div>
+                            <div class="fraction-label">${frac1.display}</div>
+                        </div>
+                        <div class="compare-fraction">
+                            <div class="fraction-rectangle" style="width: 250px; height: 80px; margin: 10px auto; border: 3px solid #333; position: relative; background: #e5e7eb;">
+                                <div style="width: ${frac2.value * 100}%; height: 100%; background: #e63946;"></div>
+                            </div>
+                            <div class="fraction-label">${frac2.display}</div>
+                        </div>
+                    </div>
+                    <div class="compare-options">
+                        ${q.options.map((option, optIndex) => `
+                            <label class="compare-option">
+                                <input type="radio" 
+                                       name="question_${q.id}" 
+                                       value="${option}"
+                                       id="answer_${q.id}_${optIndex}">
+                                <span>${option}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
         }
 
         const pointsText = q.negativePoints && q.negativePoints > 0 
@@ -605,6 +708,11 @@ function renderQuestions() {
         `;
 
         container.appendChild(questionDiv);
+        
+        // Initialisiere interaktive Elemente nach dem Rendern
+        if (q.type === 'numberline') {
+            initNumberline(q.id, q.numberlineRange, q.tolerance);
+        }
     });
 }
 
@@ -674,6 +782,12 @@ function getUserAnswer(questionId, type) {
         const checked = Array.from(document.querySelectorAll(`input[name="question_${questionId}"]:checked`))
             .map(cb => cb.value);
         return checked;
+    } else if (type === 'numberline') {
+        const input = document.getElementById(`answer_${questionId}`);
+        return input ? input.value : '';
+    } else if (type === 'fraction-visual' || type === 'compare-visual') {
+        const selected = document.querySelector(`input[name="question_${questionId}"]:checked`);
+        return selected ? selected.value : '';
     }
     return '';
 }
@@ -701,6 +815,45 @@ function checkAnswer(question, userAnswer) {
         }
         
         // Falsche Antwort: Minus-Punkte (wenn negativePoints definiert)
+        if (question.negativePoints && question.negativePoints > 0) {
+            return -question.negativePoints;
+        }
+        
+        return 0;
+    } else if (question.type === 'numberline') {
+        const correct = parseFloat(question.correctAnswer);
+        const user = parseFloat(userAnswer);
+        const tolerance = question.tolerance || 0.05;
+        
+        if (isNaN(user)) {
+            return question.negativePoints && question.negativePoints > 0 ? -question.negativePoints : 0;
+        }
+        
+        if (Math.abs(user - correct) <= tolerance) {
+            return question.points;
+        }
+        
+        // Teilpunkte für nahe Antworten
+        const distance = Math.abs(user - correct);
+        if (distance <= tolerance * 2) {
+            return Math.floor(question.points * 0.5);
+        }
+        
+        // Falsche Antwort: Minus-Punkte
+        if (question.negativePoints && question.negativePoints > 0) {
+            return -question.negativePoints;
+        }
+        
+        return 0;
+    } else if (question.type === 'fraction-visual' || question.type === 'compare-visual') {
+        const correct = question.correctAnswer.toLowerCase().trim();
+        const user = userAnswer.toLowerCase().trim();
+        
+        if (user === correct) {
+            return question.points;
+        }
+        
+        // Falsche Antwort: Minus-Punkte
         if (question.negativePoints && question.negativePoints > 0) {
             return -question.negativePoints;
         }
@@ -987,3 +1140,92 @@ window.setExamTitle = function(title, info) {
 window.setExamDuration = function(minutes) {
     EXAM_DURATION_MINUTES = minutes;
 };
+
+// Zahlenstrahl-Funktionen
+function initNumberline(questionId, range, tolerance) {
+    const container = document.getElementById(`numberline_${questionId}`);
+    if (!container) return;
+    
+    const svg = container.querySelector('svg');
+    const marker = document.getElementById(`marker_${questionId}`);
+    const valueDisplay = document.getElementById(`numberline_value_${questionId}`);
+    const hiddenInput = document.getElementById(`answer_${questionId}`);
+    
+    if (!svg || !marker || !valueDisplay || !hiddenInput) return;
+    
+    const line = svg.querySelector('line');
+    if (!line) return;
+    
+    const svgRect = svg.getBoundingClientRect();
+    const lineX1 = parseFloat(line.getAttribute('x1')) / 100 * svgRect.width;
+    const lineX2 = parseFloat(line.getAttribute('x2')) / 100 * svgRect.width;
+    const lineY = parseFloat(line.getAttribute('y1')) / 100 * svgRect.height;
+    
+    let isDragging = false;
+    let currentValue = null;
+    
+    function updateMarker(x) {
+        const clampedX = Math.max(lineX1, Math.min(lineX2, x));
+        const percentage = (clampedX - lineX1) / (lineX2 - lineX1);
+        const value = range.min + percentage * (range.max - range.min);
+        
+        currentValue = value;
+        const percentageX = 5 + (value - range.min) / (range.max - range.min) * 90;
+        
+        marker.setAttribute('cx', `${percentageX}%`);
+        marker.style.display = 'block';
+        
+        valueDisplay.textContent = `Wert: ${value.toFixed(3)}`;
+        hiddenInput.value = value.toString();
+    }
+    
+    function handleClick(e) {
+        const rect = svg.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        updateMarker(x);
+    }
+    
+    function handleMouseMove(e) {
+        if (isDragging) {
+            const rect = svg.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            updateMarker(x);
+        }
+    }
+    
+    function handleMouseDown(e) {
+        isDragging = true;
+        const rect = svg.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        updateMarker(x);
+        e.preventDefault();
+    }
+    
+    function handleMouseUp() {
+        isDragging = false;
+    }
+    
+    svg.addEventListener('click', handleClick);
+    svg.addEventListener('mousemove', handleMouseMove);
+    marker.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    // Touch-Events für mobile Geräte
+    svg.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const rect = svg.getBoundingClientRect();
+        const x = touch.clientX - rect.left;
+        updateMarker(x);
+    });
+}
+
+function resetNumberline(questionId) {
+    const marker = document.getElementById(`marker_${questionId}`);
+    const valueDisplay = document.getElementById(`numberline_value_${questionId}`);
+    const hiddenInput = document.getElementById(`answer_${questionId}`);
+    
+    if (marker) marker.style.display = 'none';
+    if (valueDisplay) valueDisplay.textContent = 'Klicken Sie auf den Zahlenstrahl';
+    if (hiddenInput) hiddenInput.value = '';
+}

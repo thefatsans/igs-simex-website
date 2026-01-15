@@ -127,6 +127,178 @@
             cursor: pointer;
         }
 
+        /* Zahlenstrahl Styles */
+        .numberline-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .numberline {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            margin: 20px 0;
+            cursor: crosshair;
+        }
+
+        .numberline svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .numberline-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .numberline-reset {
+            padding: 0.5rem 1.5rem;
+            background: #6b7280;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .numberline-reset:hover {
+            background: #4b5563;
+        }
+
+        .numberline-value {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Fraction Visual Styles */
+        .fraction-visual-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .fraction-display {
+            margin: 2rem 0;
+        }
+
+        .fraction-rectangle {
+            width: 300px;
+            height: 100px;
+            margin: 20px auto;
+            border: 3px solid #333;
+            position: relative;
+            background: #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .fraction-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .fraction-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .fraction-option:hover {
+            border-color: var(--primary-color);
+            background: rgba(230, 57, 70, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .fraction-option input[type="radio"] {
+            margin-right: 0.5rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .fraction-option input[type="radio"]:checked + span {
+            color: var(--primary-color);
+        }
+
+        /* Compare Visual Styles */
+        .compare-visual-container {
+            margin: 2rem 0;
+        }
+
+        .compare-fractions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .compare-fraction {
+            text-align: center;
+        }
+
+        .fraction-label {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .compare-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .compare-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            font-size: 1.1rem;
+        }
+
+        .compare-option:hover {
+            border-color: var(--primary-color);
+            background: rgba(230, 57, 70, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .compare-option input[type="radio"] {
+            margin-right: 0.5rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .compare-option input[type="radio"]:checked + span {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
         .submit-container {
             text-align: center;
             margin: 3rem 0;
