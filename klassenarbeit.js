@@ -103,6 +103,14 @@ function selectExam(exam) {
 function startExam() {
     if (!selectedExam) return;
     
+    // Setze alle localStorage-Werte zurück (für neue Arbeit)
+    localStorage.removeItem(EXAM_SUBMITTED_KEY);
+    localStorage.removeItem(TIMER_STORAGE_KEY);
+    localStorage.removeItem(EXAM_STARTED_KEY);
+    localStorage.removeItem(EXTRA_TIME_USED_KEY);
+    localStorage.removeItem(HINT_USED_KEY);
+    localStorage.removeItem(HINT_QUESTION_KEY);
+    
     // Verstecke Auswahlseite und zeige Arbeit
     document.getElementById('examSelectionContainer').classList.add('hidden');
     document.getElementById('klassenarbeitContainer').classList.remove('hidden');
@@ -113,6 +121,12 @@ function startExam() {
     if (selectedExam.difficulty) {
         localStorage.setItem(SELECTED_DIFFICULTY_KEY, selectedExam.difficulty.toString());
     }
+    
+    // Reset tool usage
+    extraTimeUsed = false;
+    hintUsed = false;
+    hintQuestionId = null;
+    extraTimeAdded = 0;
     
     // Lade Fragen und starte Timer
     loadExamData(selectedExam);
@@ -923,6 +937,19 @@ function showGrade(result) {
 
 function closeGradeOverlay() {
     document.getElementById('gradeOverlay').classList.remove('show');
+    
+    // Setze alle localStorage-Werte zurück, damit eine neue Arbeit gestartet werden kann
+    localStorage.removeItem(EXAM_SUBMITTED_KEY);
+    localStorage.removeItem(TIMER_STORAGE_KEY);
+    localStorage.removeItem(EXAM_STARTED_KEY);
+    localStorage.removeItem(SELECTED_EXAM_KEY);
+    localStorage.removeItem(SELECTED_DIFFICULTY_KEY);
+    localStorage.removeItem(EXTRA_TIME_USED_KEY);
+    localStorage.removeItem(HINT_USED_KEY);
+    localStorage.removeItem(HINT_QUESTION_KEY);
+    
+    // Zurück zur Auswahlseite
+    showExamSelection();
 }
 
 // Verifizierungstexte zum Abschreiben (lange Sätze, die wirklich abgeschrieben werden müssen)
@@ -1075,10 +1102,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const selectedExamId = localStorage.getItem(SELECTED_EXAM_KEY);
     const examStarted = localStorage.getItem(EXAM_STARTED_KEY);
+    const examSubmitted = localStorage.getItem(EXAM_SUBMITTED_KEY);
     const selectedDiffLevel = localStorage.getItem(SELECTED_DIFFICULTY_KEY);
     
-    // Prüfe ob bereits eine Arbeit gestartet wurde
-    if (selectedExamId && examStarted === 'true') {
+    // Prüfe ob bereits eine Arbeit gestartet wurde UND nicht abgegeben wurde
+    if (selectedExamId && examStarted === 'true' && examSubmitted !== 'true') {
         // Arbeit läuft bereits - zeige Arbeit
         const exam = AVAILABLE_EXAMS.find(e => e.id === selectedExamId);
         if (exam) {
@@ -1095,7 +1123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showExamSelection();
         }
     } else {
-        // Keine Arbeit gestartet - zeige Auswahl
+        // Keine Arbeit gestartet oder bereits abgegeben - zeige Auswahl
         showExamSelection();
     }
     
