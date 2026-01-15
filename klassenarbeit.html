@@ -679,6 +679,105 @@
             margin-top: 1rem;
         }
 
+        /* Farben für verschiedene Schwierigkeitsstufen */
+        .exam-card.difficulty-1 {
+            background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
+            border-color: #f8bbd0;
+        }
+        .exam-card.difficulty-1::before {
+            background: linear-gradient(90deg, #ff6b9d, #ffc1cc);
+        }
+        .exam-card.difficulty-1 .exam-card-title {
+            color: #e91e63;
+        }
+        .exam-card.difficulty-1:hover {
+            border-color: #e91e63;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+        }
+
+        .exam-card.difficulty-2 {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-color: #a5d6a7;
+        }
+        .exam-card.difficulty-2::before {
+            background: linear-gradient(90deg, #4caf50, #81c784);
+        }
+        .exam-card.difficulty-2 .exam-card-title {
+            color: #2e7d32;
+        }
+        .exam-card.difficulty-2:hover {
+            border-color: #2e7d32;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+        }
+
+        .exam-card.difficulty-3 {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-color: #90caf9;
+        }
+        .exam-card.difficulty-3::before {
+            background: linear-gradient(90deg, #2196f3, #64b5f6);
+        }
+        .exam-card.difficulty-3 .exam-card-title {
+            color: #1565c0;
+        }
+        .exam-card.difficulty-3:hover {
+            border-color: #1565c0;
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.3);
+        }
+
+        .exam-card.difficulty-4 {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-color: #ffcc80;
+        }
+        .exam-card.difficulty-4::before {
+            background: linear-gradient(90deg, #ff9800, #ffb74d);
+        }
+        .exam-card.difficulty-4 .exam-card-title {
+            color: #e65100;
+        }
+        .exam-card.difficulty-4:hover {
+            border-color: #e65100;
+            box-shadow: 0 8px 25px rgba(230, 81, 0, 0.3);
+        }
+
+        .exam-card.difficulty-5 {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            border-color: #f48fb1;
+        }
+        .exam-card.difficulty-5::before {
+            background: linear-gradient(90deg, #e91e63, #f06292);
+        }
+        .exam-card.difficulty-5 .exam-card-title {
+            color: #880e4f;
+        }
+        .exam-card.difficulty-5:hover {
+            border-color: #880e4f;
+            box-shadow: 0 8px 25px rgba(136, 14, 79, 0.3);
+        }
+
+        .exam-card.difficulty-6 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-color: #424242;
+        }
+        .exam-card.difficulty-6::before {
+            background: linear-gradient(90deg, #000000, #424242);
+        }
+        .exam-card.difficulty-6 .exam-card-title {
+            color: #ff1744;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+        }
+        .exam-card.difficulty-6 .exam-card-info {
+            color: #b0b0b0;
+        }
+        .exam-card.difficulty-6 .exam-card-duration {
+            color: #ff1744;
+        }
+        .exam-card.difficulty-6:hover {
+            border-color: #ff1744;
+            box-shadow: 0 8px 25px rgba(255, 23, 68, 0.5);
+            transform: translateY(-5px) scale(1.02);
+        }
+
         /* Bestätigungsmodal */
         .confirmation-overlay {
             position: fixed;
@@ -1414,6 +1513,33 @@
             <button class="grade-close" onclick="closeGradeOverlay()">Schließen</button>
         </div>
     </div>
+
+    <!-- Audio-Elemente für verschiedene Schwierigkeitsstufen -->
+    <!-- Hinweis: Diese URLs müssen durch echte Musikquellen ersetzt werden -->
+    <audio id="music-difficulty-1" preload="auto" loop>
+        <!-- Fröhliche Kindermusik für Babys - Beispiel: Happy/Upbeat Music -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-difficulty-2" preload="auto" loop>
+        <!-- Leichte, freundliche Musik für Einfach -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-difficulty-3" preload="auto" loop>
+        <!-- Neutrale Musik für Mittel -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-difficulty-4" preload="auto" loop>
+        <!-- Intensivere Musik für Hard -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-difficulty-5" preload="auto" loop>
+        <!-- Dramatische Musik für Extreme -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-difficulty-6" preload="auto" loop>
+        <!-- Verstörende gruselige Musik für Unerträglich -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
     <script src="math-exam-data.js"></script>

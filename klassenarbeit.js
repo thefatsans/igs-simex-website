@@ -72,7 +72,7 @@ function showExamSelection() {
     
     AVAILABLE_EXAMS.forEach(exam => {
         const examCard = document.createElement('div');
-        examCard.className = 'exam-card';
+        examCard.className = `exam-card difficulty-${exam.difficulty}`;
         examCard.innerHTML = `
             <h3 class="exam-card-title">${exam.emoji || ''} ${exam.title}</h3>
             <p class="exam-card-info"><strong>Fach:</strong> ${exam.subject}</p>
@@ -131,6 +131,9 @@ function startExam() {
     // Lade Fragen und starte Timer
     loadExamData(selectedExam);
     initTimer();
+    
+    // Starte Musik basierend auf Schwierigkeit
+    playDifficultyMusic(selectedExam.difficulty);
     
     // Verhindere Zurückgehen
     preventBackNavigation();
@@ -410,6 +413,7 @@ function showHintForQuestion(questionId, hintText) {
 function cancelStart() {
     document.getElementById('confirmationOverlay').classList.remove('show');
     selectedExam = null;
+    // Musik sollte hier nicht gestoppt werden, da noch keine gestartet wurde
 }
 
 // Arbeit laden
@@ -938,6 +942,9 @@ function showGrade(result) {
 function closeGradeOverlay() {
     document.getElementById('gradeOverlay').classList.remove('show');
     
+    // Stoppe Musik
+    stopAllMusic();
+    
     // Setze alle localStorage-Werte zurück, damit eine neue Arbeit gestartet werden kann
     localStorage.removeItem(EXAM_SUBMITTED_KEY);
     localStorage.removeItem(TIMER_STORAGE_KEY);
@@ -1040,6 +1047,9 @@ function confirmCloseExam() {
         return;
     }
     
+    // Stoppe Musik
+    stopAllMusic();
+    
     // Alle Daten löschen
     localStorage.removeItem('exam_timer_start');
     localStorage.removeItem('exam_started');
@@ -1085,6 +1095,9 @@ function submitExam() {
     document.getElementById('examForm').style.pointerEvents = 'none';
     document.getElementById('submitButton').disabled = true;
     document.getElementById('closeExamButton').disabled = true;
+    
+    // Stoppe Musik nach Abgabe
+    stopAllMusic();
     
     // Berechne Note
     const result = evaluateAnswers();
@@ -1153,6 +1166,33 @@ document.addEventListener('DOMContentLoaded', () => {
         cancelVerificationBtn.addEventListener('click', cancelCloseVerification);
     }
 });
+
+// Musik-Funktionen
+function playDifficultyMusic(difficulty) {
+    // Stoppe alle anderen Musik
+    stopAllMusic();
+    
+    // Spiele Musik basierend auf Schwierigkeit
+    const audioElement = document.getElementById(`music-difficulty-${difficulty}`);
+    if (audioElement) {
+        audioElement.volume = 0.3; // 30% Lautstärke
+        audioElement.loop = true;
+        audioElement.play().catch(err => {
+            console.log('Musik konnte nicht abgespielt werden:', err);
+        });
+    }
+}
+
+function stopAllMusic() {
+    // Stoppe alle Musik-Elemente
+    for (let i = 1; i <= 6; i++) {
+        const audioElement = document.getElementById(`music-difficulty-${i}`);
+        if (audioElement) {
+            audioElement.pause();
+            audioElement.currentTime = 0;
+        }
+    }
+}
 
 // Export für spätere Verwendung
 window.setExamQuestions = function(questions) {
