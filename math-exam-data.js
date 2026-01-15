@@ -30,22 +30,22 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 3,
                 type: 'text',
-                question: 'Erweitere den Bruch 1/2 mit 2.',
+                question: 'Ein Rezept benötigt 1/2 Tasse Mehl. Du willst das Rezept verdoppeln. Wie viel Mehl brauchst du dann? (Antworte als erweiterter Bruch, z.B. 2/4)',
                 points: 3,
                 negativePoints: 1,
                 correctAnswer: '2/4',
                 keywords: ['2/4'],
-                hint: 'Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl. 1/2 mit 2 erweitert = (1×2)/(2×2) = 2/4.'
+                hint: 'Wenn du 1/2 verdoppelst, multiplizierst du Zähler und Nenner mit 2: 1/2 = (1×2)/(2×2) = 2/4.'
             },
             {
                 id: 4,
                 type: 'text',
-                question: 'Kürze den Bruch 2/4 vollständig.',
+                question: 'Ein Kuchen wird in 4 Stücke geteilt. 2 Stücke werden gegessen. Welcher gekürzte Bruch beschreibt, wie viel vom Kuchen gegessen wurde?',
                 points: 3,
                 negativePoints: 1,
                 correctAnswer: '1/2',
-                keywords: ['1/2'],
-                hint: 'Beim Kürzen teilst du Zähler und Nenner durch dieselbe Zahl. 2/4 kannst du durch 2 teilen: (2÷2)/(4÷2) = 1/2.'
+                keywords: ['1/2', 'halb'],
+                hint: '2 von 4 Stücken = 2/4. Das kannst du durch 2 kürzen: 2/4 = 1/2.'
             },
             {
                 id: 5,
@@ -385,12 +385,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 2,
                 type: 'text',
-                question: 'Kürze 32/48 vollständig.',
+                question: 'Ein Parkplatz hat 48 Plätze. 32 Plätze sind belegt. Welcher gekürzte Bruch beschreibt, wie viele Plätze belegt sind?',
                 points: 4,
                 negativePoints: 1,
                 correctAnswer: '2/3',
                 keywords: ['2/3'],
-                hint: '32/48 kannst du durch 16 teilen: (32÷16)/(48÷16) = 2/3.'
+                hint: '32 von 48 Plätzen = 32/48. Das kannst du durch 16 kürzen: 32/48 = 2/3.'
             },
             {
                 id: 3,
@@ -564,12 +564,12 @@ const MATH_EXAM_DIFFICULTIES = {
             {
                 id: 6,
                 type: 'text',
-                question: 'Kürze 96/144 vollständig.',
+                question: 'Ein Unternehmen hat 144 Mitarbeiter. 96 davon arbeiten im Büro, der Rest im Homeoffice. Welcher gekürzte Bruch beschreibt, wie viele Mitarbeiter im Büro arbeiten?',
                 points: 5,
                 negativePoints: 2,
                 correctAnswer: '2/3',
                 keywords: ['2/3'],
-                hint: '96/144 kannst du durch 48 teilen: (96÷48)/(144÷48) = 2/3.'
+                hint: '96 von 144 Mitarbeitern = 96/144. Das kannst du durch 48 kürzen: 96/144 = 2/3.'
             },
             {
                 id: 7,
