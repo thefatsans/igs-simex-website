@@ -710,9 +710,11 @@ function renderQuestions() {
         container.appendChild(questionDiv);
         
         // Initialisiere interaktive Elemente nach dem Rendern
-        if (q.type === 'numberline') {
-            initNumberline(q.id, q.numberlineRange, q.tolerance);
-        }
+        setTimeout(() => {
+            if (q.type === 'numberline') {
+                window.initNumberline(q.id, q.numberlineRange, q.tolerance);
+            }
+        }, 100);
     });
 }
 
@@ -1142,7 +1144,7 @@ window.setExamDuration = function(minutes) {
 };
 
 // Zahlenstrahl-Funktionen
-function initNumberline(questionId, range, tolerance) {
+window.initNumberline = function(questionId, range, tolerance) {
     const container = document.getElementById(`numberline_${questionId}`);
     if (!container) return;
     
@@ -1220,7 +1222,7 @@ function initNumberline(questionId, range, tolerance) {
     });
 }
 
-function resetNumberline(questionId) {
+window.resetNumberline = function(questionId) {
     const marker = document.getElementById(`marker_${questionId}`);
     const valueDisplay = document.getElementById(`numberline_value_${questionId}`);
     const hiddenInput = document.getElementById(`answer_${questionId}`);
